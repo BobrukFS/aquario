@@ -1,2 +1,0 @@
-# aquario
-Proyecto fundacion pescar
