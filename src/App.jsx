@@ -1,11 +1,12 @@
 import './App.css'
-import ComponenteEjemplo from './components/ComponenteEjemplo'
+import ComponenteEjemplo from './components/ComponenteEjemplo/ComponenteEjemplo'
+import Login from './components/Login/Login'
 
 const App = () => {
   
   return (
     <div>
-      <ComponenteEjemplo/>
+     <Login/>
       </div>
   )
 }
