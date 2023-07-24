@@ -1,4 +1,4 @@
-import './Login.css'
+import styles from './Login.module.css'
 import logo from '../../assets/LogoFundacionPescar.png'
 
 const Login = () => {
@@ -25,7 +25,7 @@ const Login = () => {
          <input type="checkbox" />
          <span>Recordar usuario</span>
         </div>
-    <button className="mt-3" id='button'  type="submit">Ingresar</button>
+    <button className={`${styles.button} mt-3`} id='button'  type="submit">Ingresar</button>
       <a  href='#'>¿Olvidaste tu contraseña?</a>
     </form>
   )
