@@ -44,6 +44,8 @@ form input[type="text"], input[type="password"] {
 
 .bottom-inputs input {
     margin-right:5px;
+/*     position: relative;
+    top: 2px; */
 }
 
 form p, form span {
@@ -53,7 +55,7 @@ form p, form span {
   }
 
 button {
-    width:250px;
+    width: 250px;
     border:none;
     background-color: #e47f45;
     color:White;
@@ -63,5 +65,8 @@ button {
     margin-top:0.5rem;
 }
 
-
+.underlined:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
 
