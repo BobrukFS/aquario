@@ -52,9 +52,9 @@ form p, form span {
     font-size: 12px;
     text-align: start;
     font-weight: 300;
-  }
+}
 
-button {
+.button {
     width: 250px;
     border:none;
     background-color: #e47f45;

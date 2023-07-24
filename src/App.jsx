@@ -1,11 +1,11 @@
 import './App.css'
-import Fondo from "./components/Login/Fondo/Fondo"
+import Header from "./components/Header/Header"
 
 
 const App = () => {
   return (
     <div>
-     <Fondo/>
+     <Header/>
     </div>
   )
 }

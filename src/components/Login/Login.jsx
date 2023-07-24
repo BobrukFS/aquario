@@ -1,4 +1,4 @@
-import './Login.css'
+import styles from './Login.module.css'
 import logo from '../../assets/LogoFundacionPescar.png'
 
 const Login = () => {
@@ -27,7 +27,7 @@ const Login = () => {
         <span class="underlined">¿Olvidaste tu contraseña?</span>
         </div>
       </div>
-    <button id='button'  type="submit">Ingresar</button>
+    <button className={styles.button}  type="submit">Ingresar</button>
     </form>
   )
 }
