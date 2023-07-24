@@ -20,6 +20,7 @@ form {
 form label {
     font-weight: 600;
     align-self: flex-start;
+    color:rgba(0, 0, 0, 0.80);
 }
 
 form input[type="text"], input[type="password"] {
@@ -33,26 +34,28 @@ form input[type="text"], input[type="password"] {
     font-weight: 300;
 }
 
-.bottom-inputs {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 0.5rem;
-    width:100%;
-    color:#e47f45;
-    
-}
-
-.bottom-inputs input {
-    margin-right:5px;
-/*     position: relative;
-    top: 2px; */
-}
-
-form p, form span {
+form p, form span, form a {
     font-size: 12px;
     text-align: start;
     font-weight: 300;
   }
+
+form span {
+  color:#e47f45;
+   font-weight: 600;
+   margin-left:5px;
+   margin-top:2px;
+}
+
+form p {
+    color:#4E4D4D;
+}
+
+.checkbox {
+    display: flex;
+    flex-direction: row;
+    align-self: flex-start;
+}
 
 button {
     width: 250px;
@@ -62,11 +65,20 @@ button {
     padding: 0.3rem 0 0.3rem 0;
     border-radius: 8px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    margin-top:0.5rem;
 }
 
-.underlined:hover{
-    text-decoration: underline;
-    cursor: pointer;
+form a {
+   color:#e47f45; 
+   margin-top:2rem;
 }
+
+form a:hover {
+    color:#c75b1c;
+    
+}
+
+
+
+
+
 
