@@ -1,0 +1,9 @@
+.background{
+    background-image: url("/src/assets/LogoFundacionPescar.png");
+    background-image: url('/src/assets/background.jpg');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+

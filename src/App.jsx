@@ -1,12 +1,12 @@
 import './App.css'
-import Login from './components/Login/Login'
+import Fondo from "./components/Login/Fondo/Fondo"
+
 
 const App = () => {
-  
   return (
     <div>
-     <Login/>
-      </div>
+     <Fondo/>
+    </div>
   )
 }
 
