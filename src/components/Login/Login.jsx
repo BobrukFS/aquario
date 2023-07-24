@@ -24,7 +24,7 @@ const Login = () => {
         <span>Recordar usuario</span>
         </div>
         <div>
-        <span>Olvidé mi contraseña</span>
+        <span class="underlined">¿Olvidaste tu contraseña?</span>
         </div>
       </div>
     <button id='button'  type="submit">Ingresar</button>
