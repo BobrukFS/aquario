@@ -15,7 +15,7 @@ const Footer = () => {
             <div className="redes">
             <a href="#"><i class="fa-brands fa-facebook fa-2xl"></i></a>
             <a href="#"><i class="fa-brands fa-twitter fa-2xl"></i></a>
-            <a href="#"><i class="fa-brands fa-youtube fa-2xl"></i> </a>
+            <a href="#"><i class="fa-brands fa-youtube fa-2xl"></i></a>
             <a href="#"><i class="fa-brands fa-instagram fa-2xl"></i></a>
             <a href="#"><i class="fa-brands fa-linkedin fa-2xl"></i></a>
             </div>
