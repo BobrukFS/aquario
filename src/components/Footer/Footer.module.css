@@ -1,4 +1,4 @@
-/* p {
+p {
     margin: 0;
 }
 
@@ -6,7 +6,7 @@ i {
     color: black;
     margin:2rem 0.5rem;
 }
- */
+
 .container {
     height:500px;
     font-weight: 300;
