@@ -1,57 +1,56 @@
-import './Carrusel.css'
+import styles from './Carrusel.module.css'
 import profilePicture from '../../assets/profilePicture.png'
 
 const Carrusel = () =>{
     return(
-        <div className='carrusel'>
+        <div>
             
-            <div id='flechas'>
-                <div className='upper flecha'></div>
-                <div className='bottom flecha'></div>
+            <div className={`${styles.flechas}`}>
+                <div className={`${styles.flecha} ${styles.upper}`}></div>
+                <div className={`${styles.flecha} ${styles.bottom}`}></div>
             </div>
 
-            <div className="container">
-                <div className="card" id='upperCard'>
-                    <div className='datos'>
+            <div className={`${styles.containerCarrusel}`}>
+                <div className={`${styles.testimonio} ${styles.upperCard}`}>
+                    <div className={`${styles.datos}`}>
                         <img src={profilePicture} alt="foto de perfil generica" />
-                        <h3 className="title">Juan</h3>
+                        <h3 className={`${styles.title}`}>Juan</h3>
                     </div>
-                    <div className="bar">
-                        <div className="emptybar" />
-                        <div className="filledbar" />
+                    <div className={`${styles.bar}`}>
+                        <div className={`${styles.emptybar}`} />
+                        <div className={`${styles.filledbar}`} />
                     </div>
                     <div>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, libero. Alias repudiandae quaerat ipsa voluptas laborum nostrum quos iure aliquam laudantium voluptatem saepe fugiat sequi earum a, blanditiis temporibus commodi?</p>
                     </div>
                 </div>
 
-                <div className="card" id='middleCard'>
-                    <div className='datos'>
+                <div className={`${styles.testimonio} ${styles.middleCard}`}>
+                    <div className={`${styles.datos}`}>
                         <img src={profilePicture} alt="foto de perfil generica" />
-                        <h3 className="title">Pedro</h3>
+                        <h3 className={`${styles.title}`}>Pedro</h3>
                     </div>
-                    <div className="bar">
-                        <div className="emptybar" />
-                        <div className="filledbar" />
+                    <div className={`${styles.bar}`}>
+                        <div className={`${styles.emptybar}`} />
+                        <div className={`${styles.filledbar}`} />
                     </div>
                     <div>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, libero. Alias repudiandae quaerat ipsa voluptas laborum nostrum quos iure aliquam laudantium voluptatem saepe fugiat sequi earum a, blanditiis temporibus commodi?</p>
                     </div>
                 </div>
      
-                <div className="card" id='bottomCard'>
-                    <div className='datos'>
+                <div className={`${styles.testimonio} ${styles.bottomCard}`}> 
+                    <div className={`${styles.datos}`}>
                         <img src={profilePicture} alt="foto de perfil generica" />
-                        <h3 className="title">Juan</h3>
+                        <h3 className={`${styles.title}`}>Juan</h3>
                     </div>
-                    <div className="bar">
-                        <div className="emptybar" />
-                        <div className="filledbar" />
+                    <div className={`${styles.bar}`}>
+                        <div className={`${styles.emptybar}`} />
+                        <div className={`${styles.filledbar}`} />
                     </div>
                 </div> 
-                
-                </div>
 
+            </div>
         </div>
     )
 }
