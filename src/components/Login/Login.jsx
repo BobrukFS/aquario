@@ -1,15 +1,42 @@
 import styles from './Login.module.css'
 import logo from '../../assets/LogoFundacionPescar.png'
+import { useAuth } from '../../provider/authProvider';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+
+  const { setToken } = useAuth();
+  const navigate = useNavigate();
+
   const formHandler = (event) =>{
-    event.preventDefault()
-    const email = event.target.user.value
+    event.preventDefault();
+
+    const username = event.target.user.value;
+    const password = event.target.password.value;
+
+
     const regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/g
 
-    if (email !== "" && !regexEmail.test(email)) {
+    if (username !== "" && !regexEmail.test(username)) {
       return;
     }
+
+    axios({
+      method: 'post',
+      url: 'https://localhost:7154/api/Auth/Login',
+      data: {
+          username,
+          password,
+      } 
+    }).then((resp) => {
+      setToken(resp.data.jwtToken)
+      navigate("/foro", { replace: true });
+    }) 
+    
+    
+
+    
     
   }
   return (

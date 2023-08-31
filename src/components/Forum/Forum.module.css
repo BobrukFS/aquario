@@ -1,26 +1,42 @@
+.container {
+    position: relative;
+}
+
 .button {
     width: 250px;
     border:none;
     background-color: #e47f45;
     color:White;
-    padding: 0.3rem 0 0.3rem 0;
+    padding:1rem;
     border-radius: 8px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 ul {
    list-style-type: none;
+   padding:0;
 }
 
 .liContainer {
     display: flex;
-    align-items: center;
     gap:0.5rem;
     margin-top:1rem;
+    font-weight: 300;
+    color:#363636;
+    align-items: center;
 }
 
 .liContainer img {
     width:35px;
+}
+
+.recentButton {
+    background-color: #E6E6E6;
+    width:150px;
+    padding:1rem;
+    display: flex;
+    border-radius: 10px;
+    color:#363636;
 }
 
 .rect {
@@ -48,4 +64,6 @@ ul {
 .grey {
     background-color: #3E3D3D;
 }
+
+
 

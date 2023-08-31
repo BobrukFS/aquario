@@ -1,7 +1,7 @@
 import './Fondo.css'
 import Login from "../Login"
 
-const Fondo = () =>{
+export const Fondo = () =>{
     return (
         <div className="background">
             <Login>
@@ -10,4 +10,3 @@ const Fondo = () =>{
     )
 }
 
-export default Fondo
