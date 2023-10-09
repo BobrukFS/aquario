@@ -50,7 +50,7 @@ const { data, loading, error  } = useFetch('https://localhost:7154/api/ForumThre
         <div className="col-md-8">
           <div className={styles.recentButton}>Recientes <img src={arrow} alt="" /></div>
           {loading && loading}
-          {data && data.map((x, i) => <ForumPost key={i} title={x.title} id={x.threadId} tag={x.tag} />)}
+          {data && data.map((x, i) => <ForumPost key={i} title={x.title} id={x.threadId} tag={x.tag} comments={x.reply.length} />)}
 
         </div>  
         </div>
