@@ -16,11 +16,6 @@ export const Avisos = () => {
            <Aviso/>
            <Aviso/>
            <Aviso/>
-
-    
-
-
-           
             
          </section>
         </div>
