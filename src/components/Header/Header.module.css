@@ -10,3 +10,9 @@
     align-items: center;
     
 }
+
+.links{
+    color:black;
+    text-decoration: none;
+    padding-left: 1em;
+}
