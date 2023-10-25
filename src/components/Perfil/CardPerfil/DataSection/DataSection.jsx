@@ -1,6 +1,8 @@
 import React from 'react'
 import style from './DataSection.module.css';
-const DataSection = ({titulo, value, editable}) => {
+
+
+export const DataSection = ({titulo, value, editable}) => {
 
   return (
     <>
@@ -22,5 +24,3 @@ const DataSection = ({titulo, value, editable}) => {
     </>
   )
 }
-
-export default DataSection

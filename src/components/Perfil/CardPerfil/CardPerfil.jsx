@@ -1,9 +1,9 @@
 import React from "react";
-import DataSection from "./DataSection/DataSection";
+import {DataSection} from "./DataSection/DataSection";
 import styles from "./CardPerfil.module.css";
 import useFetch from "../../../custom-hook/useFetch";
 
-const CardPerfil = ({tipo}) => {
+export const CardPerfil = ({tipo}) => {
    // const {nombre, mail, linkedin, ingreso, coordinadoras} = useFetch("http://localhost:3000/usuarios/1")
    const {data, loading} = useFetch("http://localhost:3000/usuarios/1");
    if(loading){
@@ -54,4 +54,4 @@ const CardPerfil = ({tipo}) => {
   );
 };
 
-export default CardPerfil;
+
