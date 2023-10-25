@@ -5,25 +5,24 @@ export const Navbar = () => {
     return(
         <div className= {styles.bar}>
             <nav className="nav navbar-expand-lg bg-body-tertiary">
-           <div className="container-fluid">
- <ul className="nav justify-content-center nav-underline">
+                <div className="container-fluid">
+                    <ul className="nav justify-content-center nav-underline">
 
-  <li className="nav-item">
-  <Link to="/avisos"> <a className= "nav-link active" aria-current="page" href="#">Avisos</a> </Link>
-  </li> 
+                    <li className="nav-item">
+                        <Link className={`${styles.links}`} to="/avisos"> <p className={`${styles.link_style}`}>Avisos</p> </Link>
+                    </li> 
 
-  <li className="nav-item">
-  <Link to="/calendario"> <a className="nav-link" href="#">Calendario</a> </Link>
-  </li> 
-  
-  <li className="nav-item">
-  <Link to= "/participantes"> <a className="nav-link" href="#">Participantes</a> </Link>
-  </li>
-   
-</ul>
-</div>
-</nav>
-
+                    <li className="nav-item">
+                        <Link className={`${styles.links}`} to="/calendario"> <p className={`${styles.link_style}`}>Calendario</p> </Link>
+                    </li> 
+                    
+                    <li className="nav-item">
+                        <Link className={`${styles.links}`} to= "/participantes"> <p className={`${styles.link_style}`}>Participantes</p> </Link>
+                    </li>
+                    
+                    </ul>
+                </div>
+            </nav>
         </div>
     )
 
