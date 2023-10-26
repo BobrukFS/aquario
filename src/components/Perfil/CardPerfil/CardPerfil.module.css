@@ -2,6 +2,8 @@
     background: rgb(253,114,2);
     background: linear-gradient(0deg, rgba(253,114,2,0.8) 0%, rgba(15, 21, 90, 0.8) 100%);
     position: relative;
+    min-height: 230px;
+    max-height: 230px;
   
 }
 
@@ -22,4 +24,16 @@
     color: rgb(206, 204, 202);
     font-weight: 700;
   
+}
+
+@media (min-width: 1440px) { 
+    .imgCard{
+        top: 0;
+        left: 0;
+        width: 80px;
+    }
+
+    .perfilCard{
+        max-height: 100%;
+    }
 }
