@@ -16,7 +16,7 @@ export const Header = () => {
   };
 
   const abrirMenuDropdown = () =>{
-      const img = document.getElementsByClassName(".img_perfil");
+      const img = document.getElementsByClassName("img_perfil");
 
       if(img[0].classList.contains("d-none")){
         img[0].classList.replace("d-none", "d-flex")
