@@ -1,0 +1,25 @@
+.perfilCard{
+    background: rgb(253,114,2);
+    background: linear-gradient(0deg, rgba(253,114,2,0.8) 0%, rgba(15, 21, 90, 0.8) 100%);
+    position: relative;
+  
+}
+
+.dataContainer{
+    background: rgba(63, 63, 63, 0.75);
+}
+
+.imgCard{
+   position: relative;
+   left: 0rem;
+   top: -1.5rem;
+   border: 2px solid rgb(5, 9, 51);
+}
+
+
+.dataTematica{
+    font-size: .8rem;
+    color: rgb(206, 204, 202);
+    font-weight: 700;
+  
+}

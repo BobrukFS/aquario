@@ -1,0 +1,22 @@
+{
+  "usuarios" : [
+    {
+      "nombre" : "Juana de Arco",
+      "mail" : "juanadearco@gmail.com",
+      "linkedin" : "juanadearco/in",
+      "ingreso" : "10/06/2023",
+      "coordinadoras" : ["Ana Maria Polo", "Kim Kardashian"],
+      "centro" : "Santander",
+      "tematica" : "Desarrollo web Full-stack",
+      "id" : 1
+    },
+    {
+      "nombre" : "Manolo",
+      "mail" : "manolo@gmail.com",
+      "linkedin" : "manolo/in",
+      "ingreso" : "10/06/2023",
+      "coordinadoras" : ["Ana Maria Polo", "Kim Kardashian"],
+      "id" : 2
+    }
+  ]
+}
