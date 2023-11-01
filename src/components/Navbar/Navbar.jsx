@@ -9,7 +9,7 @@ export const Navbar = () => {
                     <ul className="nav justify-content-center nav-underline">
 
                     <li className="nav-item">
-                        <Link className={`${styles.links}`} to="/avisos"> <p className={`${styles.link_style}`}>Avisos</p> </Link>
+                        <Link className={`${styles.links}`} to="/campus/avisos"> <p className={`${styles.link_style}`}>Avisos</p> </Link>
                     </li> 
 
                     <li className="nav-item">
