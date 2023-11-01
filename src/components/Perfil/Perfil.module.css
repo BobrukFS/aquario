@@ -1,13 +1,19 @@
 .sectionPerfil{
+
     max-width: 430px;
 }
 
 .perfil{
-    background-color: rgb(192, 191, 189);
+    
     min-height: 100vh;
 }
 
-.perfilContainer{
-    max-width: 800px;
-    min-height: 100vh;
+.container{
+    flex-wrap:wrap
+}
+
+@media (min-width: 1440px) { 
+    .container{
+        flex-wrap: nowrap;
+    }
 }
