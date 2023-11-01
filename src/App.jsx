@@ -1,13 +1,17 @@
 import './App.css'
 import Fondo from "./components/Login/Fondo/Fondo"
-import { Routes, Route} from "react-router-dom"
+import { Routes, Route, Router} from "react-router-dom"
 import {Perfil} from './components/Perfil/Perfil';
 import { Publicaciones } from './components/Perfil/Publicaciones/Publicaciones';
 import { Campus } from './components/Campus/Campus';
 import { Avisos } from './components/Campus/Avisos/Avisos';
+import Header from './components/Header/Header';
 const App = () => {
-  return (
-    <div>
+  return (<div>
+  
+    
+        
+    
       <Routes>
         
         <Route path="/" element= { <Fondo/> }> </Route>    
@@ -18,10 +22,8 @@ const App = () => {
                 
       </Routes>
      
-
-    
-    </div>
-  )
+     
+      </div>)
 }
 
 export default App

@@ -38,5 +38,30 @@
       "reacciones" : 30,
       "id" : 2
       }
+  ],
+  "avisos" : [
+    {
+      "titulo" : "Hoy hay empanadas",
+      "contenido" : "Hay empanadas y cocacola",
+      "fecha" : "10/06/2023",
+      "hora" : "12:35",
+      "creador" : "Maria bereterbide"
+    },
+    {
+      "titulo" : "Hoy hay pizza",
+      "contenido" : "Hay empanadas y cocacola",
+      "fecha" : "10/06/2023",
+      "hora" : "12:35",
+      "creador" : "Maria bereterbide"
+    },
+    {
+      "titulo" : "Hoy hay empanadas",
+      "contenido" : "Hay empanadas y cocacola",
+      "fecha" : "10/06/2023",
+      "hora" : "12:35",
+      "creador" : "Maria bereterbide"
+    }
+    
+
   ]
 }
