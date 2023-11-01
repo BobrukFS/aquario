@@ -18,10 +18,10 @@ export const Header = () => {
   const abrirMenuDropdown = () =>{
       const img = document.getElementsByClassName(".img_perfil");
 
-      if(img.classList.contains("d-none")){
-        img.classList.replace("d-none", "d-flex")
+      if(img[0].classList.contains("d-none")){
+        img[0].classList.replace("d-none", "d-flex")
       }
-      img.classList.replace("d-flex", "d-none")
+      img[0].classList.replace("d-flex", "d-none")
   }
 
   return (
@@ -30,7 +30,7 @@ export const Header = () => {
         className={` px-4  ${styles.header} container-fluid  d-flex w-100 align-items-center justify-content-between p-2   top-0 start-0 px-lg-5`}
       >
         <Link to="/" className="link-logo">
-          <img width={150} src="src/assets/LogoFundacionPescar.png" alt="" />
+          <img width={200} src="src/assets/LogoFundacionPescar.png" alt="" />
         </Link>
         <div className={`${styles.box} z-2 d-md-none`}>
           <div
@@ -47,14 +47,14 @@ export const Header = () => {
         >
           <div className="d-flex flex-column align-items-center flex-md-row mx-4">
             <Link
-              className={`${styles.link}  mb-4 mb-md-0 mx-md-3 fs-3`}
-              to="/about"
+              className={`${styles.link}  mb-4 mb-md-0 mx-md-3 `}
+              to="/campus"
             >
               Campus pescar
             </Link>
             <Link
-              className={`${styles.link}  mb-4 mb-md-0 mx-md-3 fs-3`}
-              to="/contact"
+              className={`${styles.link}  mb-4 mb-md-0 mx-md-3 `}
+              to="/foro"
             >
               Foro general
             </Link>

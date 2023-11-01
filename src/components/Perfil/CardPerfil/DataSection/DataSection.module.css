@@ -10,6 +10,11 @@
     font-weight: 400;
 }
 
+input.dataValue {
+    color: black;
+    border: none;
+}
+
 .dataButton{
     border: none;
     font-size: .7rem;

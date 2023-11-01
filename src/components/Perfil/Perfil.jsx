@@ -3,7 +3,7 @@ import { CardPerfil } from "./CardPerfil/CardPerfil";
 import styles from "./Perfil.module.css";
 import { Header } from "../Header/Header";
 import { CardPublicaciones } from "./CardPublicaciones/CardPublicaciones";
-import useFetch from "../../custom-hook/useFetch";
+import useFetch from "../../Hooks/useFetch";
 import {Link} from "react-router-dom";
 
 export const Perfil = () => {

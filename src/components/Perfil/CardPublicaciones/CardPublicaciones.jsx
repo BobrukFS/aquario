@@ -28,17 +28,19 @@ export const CardPublicaciones = ({titulo, fecha, contenido, comentarios, reacci
           <p className="text-white">
             {getPrimetas30Palabras(contenido)}  <a className="text-secondary mx-1">Ver mas</a>
           </p>
-        </div>
-        <div className="d-flex justify-content-between my-2 gap-2">
-          <div className="d-flex gap-2">
-            <p className={`text-secondary ${styles.fecha} mb-1`}>Comentario</p>
-            <p className={`text-secondary ${styles.fecha} mb-1`}>{comentarios}</p>
+
+          <div className="d-flex justify-content-between  gap-2 align-items-center ">
+          <div className="d-flex gap-2 align-items-center">
+            <p className={`text-secondary ${styles.fecha} `}><i class="fa-solid fa-heart"></i></p>
+            <p className={`text-secondary ${styles.fecha} `}>{comentarios}</p>
           </div>
-          <div className="d-flex gap-2">
-            <p className={`text-secondary ${styles.fecha} mb-1`}>Reacciones</p>
-            <p className={`text-secondary ${styles.fecha} mb-1`}>{reacciones}</p>
+          <div className="d-flex gap-2 align-items-center">
+            <p className={`text-secondary ${styles.fecha} `}><i class="fa-solid fa-comment"></i></p>
+            <p className={`text-secondary ${styles.fecha} `}>{reacciones}</p>
           </div>
         </div>
+        </div>
+        
       </div>
     </>
   );

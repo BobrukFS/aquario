@@ -1,8 +1,8 @@
 import styles from "./avisos.module.css";
-import { Header } from "../Header/Header";
-import { Navbar } from "../Navbar/Navbar";
-import Aviso1 from "../../assets/imgAviso1.jpg";
-import Aviso2 from "../../assets/imgAviso2.png";
+import { Header } from "../../Header/Header";
+import { Navbar } from "../../Navbar/Navbar";
+import Aviso1 from "../../../assets/imgAviso1.jpg";
+import Aviso2 from "../../../assets/imgAviso2.png";
 
 export const Avisos = () => {
   return (
