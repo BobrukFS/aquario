@@ -6,10 +6,10 @@ export const Navbar = () => {
         <div className= {styles.bar}>
             <nav className="nav navbar-expand-lg bg-body-tertiary">
                 <div className="container-fluid">
-                    <ul className="nav justify-content-center nav-underline">
+                    <ul className="nav justify-content-center">
 
                     <li className="nav-item">
-                        <Link className={`${styles.links}`} to="/avisos"> <p className={`${styles.link_style}`}>Avisos</p> </Link>
+                        <Link className={`${styles.links}`} to="/campus"> <p className={`${styles.link_style}`}>Avisos</p> </Link>
                     </li> 
 
                     <li className="nav-item">
