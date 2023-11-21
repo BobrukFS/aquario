@@ -1,41 +1,30 @@
-import './App.css'
-import { Fondo }  from "./components/Login/Fondo/Fondo"
-import { Forum } from './components/Forum/Forum'
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-import { Post } from './components/Forum/Post';
-import AuthProvider from './provider/authProvider';
+import "./App.css";
+import Fondo from "./components/Login/Fondo/Fondo";
+import { Routes, Route } from "react-router-dom";
+import { Perfil } from "./components/Perfil/Perfil";
+import { Participantes } from "./components/Participantes/Participantes";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Fondo />,
-  },
-  {
-
-    path: "/login",
-    element: <Fondo />,
-  },
-  {
-    path: "/foro",
-    element: <Forum/>
-  },
-  {
-   path: "/foro/:forumId",
-   element: <Post/>
-  }
-]);
-
+import { Publicaciones } from "./components/Perfil/Publicaciones/Publicaciones";
+import { Campus } from "./components/Campus/Campus";
 const App = () => {
   return (
-    <>
-    <AuthProvider>
-     <RouterProvider router={router} />
-     </AuthProvider>
-    </>
-  )
-}
+    <div>
+      <Routes>
+        <Route path="/" element={<Fondo />}>
+          {" "}
+        </Route>
+        <Route path="/campus" element={<Campus />}>
+          {" "}
+        </Route>
+        <Route path="/perfil" element={<Perfil />}>
+          {" "}
+        </Route>
+        <Route path="/participantes" element={<Participantes />}></Route>
 
-export default App
+        <Route path="/perfil/publicaciones" element={<Publicaciones />}></Route>
+      </Routes>
+    </div>
+  );
+};
+
+export default App;

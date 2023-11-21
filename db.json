@@ -1,0 +1,42 @@
+{
+  "usuarios" : [
+    {
+      "nombre" : "Juana de Arco",
+      "mail" : "juanadearco@gmail.com",
+      "linkedin" : "juanadearco/in",
+      "ingreso" : "10/06/2023",
+      "coordinadoras" : ["Ana Maria Polo", "Kim Kardashian"],
+      "centro" : "Santander",
+      "tematica" : "Desarrollo web Full-stack",
+      "id" : 1
+    },
+    {
+      "nombre" : "Manolo",
+      "mail" : "manolo@gmail.com",
+      "linkedin" : "manolo/in",
+      "ingreso" : "10/06/2023",
+      "coordinadoras" : ["Ana Maria Polo", "Kim Kardashian"],
+      "id" : 2
+    }
+  ],
+  "publicaciones" : [
+    {
+    "titulo" : "¿La IA va a reemplazar a los programadores?",
+    "tematica" : "Programacion",
+    "contenido" : "La ia nos va a reemplazar por el gran avance que se ha mostrado en los ultimos meses donde pueden realizar tareas automatizadas a mayor velocidad y menos costo de recursos humanos",
+    "fecha" : "10/06/2023",
+    "comentarios" : 25,
+    "reacciones" : 30,
+    "id" : 1
+    },
+    {
+      "titulo" : "¿La IA va a reemplazar a los programadores?",
+      "tematica" : "Programacion",
+      "contenido" : "La ia nos va a reemplazar por el gran avance que se ha mostrado en los ultimos meses donde pueden realizar tareas automatizadas a mayor velocidad y menos costo de recursos humanos",
+      "fecha" : "10/06/2023",
+      "comentarios" : 25,
+      "reacciones" : 30,
+      "id" : 2
+      }
+  ]
+}
