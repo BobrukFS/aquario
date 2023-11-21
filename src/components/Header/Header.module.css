@@ -13,11 +13,15 @@
 }
 .header .header__nav a {
   color: white;
+  text-decoration: none;
+}
+
+.links{
+color: rgb(140, 7, 29);
 }
 .header .header__nav.desplegado {
   transform: translateX(0vw);
 }
-
 
 .btn1 {
   border-radius: 50%;
