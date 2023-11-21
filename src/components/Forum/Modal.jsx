@@ -1,13 +1,13 @@
-import styles from './Modal.module.css';
-import { useEffect, useState, useRef, useCallback } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import styles from "./Modal.module.css";
+import { useEffect, useState, useRef, useCallback } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export const Modal = ({ show, onCloseButtonClick }) => {
   const navigate = useNavigate();
   const [data, setData] = useState([]);
   const [form, setForm] = useState({});
-  const [selectedOption, setSelectedOption] = useState('Programación');
+  const [selectedOption, setSelectedOption] = useState("Programación");
 
   const modalRef = useRef(null);
 
@@ -22,8 +22,8 @@ export const Modal = ({ show, onCloseButtonClick }) => {
     event.preventDefault();
 
     axios({
-      method: 'post',
-      url: 'https://localhost:7154/api/ForumThread',
+      method: "post",
+      url: "https://aquariobackend20231101183627.azurewebsites.net/api/ForumThread",
       data: {
         title,
         content,
@@ -45,11 +45,11 @@ export const Modal = ({ show, onCloseButtonClick }) => {
 
   useEffect(() => {
     if (show) {
-      window.addEventListener('mousedown', handleMouseDown);
+      window.addEventListener("mousedown", handleMouseDown);
     }
 
     return () => {
-      window.removeEventListener('mousedown', handleMouseDown);
+      window.removeEventListener("mousedown", handleMouseDown);
     };
   }, [show]);
 
@@ -58,27 +58,58 @@ export const Modal = ({ show, onCloseButtonClick }) => {
   }
 
   return (
-   <div className={styles.modalContainer}>
-    <div ref={modalRef} className={styles.modalContainer}>
-    <form onSubmit={handleSubmit} action="">
-        <label htmlFor="">Título</label>
-        <input onChange={handleChange} className="mt-3" type="text" name="title" id="title" value={form.title || ""} />
-        <label className="mt-3" htmlFor="">Contenido</label>
-        <textarea onChange={handleChange} className="mt-3" type="text" name="content" placeholder='Contenido..' value={form.content || ""} />
-        <label className="mt-3" htmlFor="">Tags</label>
-        <select value={selectedOption}  onChange={(e) => setSelectedOption(e.target.value)} name="tags" id="tags">
-            <option value="Programacion">Programación</option>
+    <div className={styles.modalContainer}>
+      <div ref={modalRef} className={styles.modalContainer}>
+        <form onSubmit={handleSubmit} action="">
+          <label htmlFor="">Título</label>
+          <input
+            onChange={handleChange}
+            className="mt-3"
+            type="text"
+            name="title"
+            id="title"
+            value={form.title || ""}
+          />
+          <label className="mt-3" htmlFor="">
+            Contenido
+          </label>
+          <textarea
+            onChange={handleChange}
+            className="mt-3"
+            type="text"
+            name="content"
+            placeholder="Contenido.."
+            value={form.content || ""}
+          />
+          <label className="mt-3" htmlFor="">
+            Tags
+          </label>
+          <select
+            value={selectedOption}
+            onChange={(e) => setSelectedOption(e.target.value)}
+            name="tags"
+            id="tags"
+          >
+            <option value="Programación">Programación</option>
             <option value="Ayuda">Ayuda</option>
             <option value="Material">Material</option>
             <option value="Avisos">Avisos</option>
             <option value="Eventos">Eventos</option>
-        </select>
-        <div className={`${styles.formButton} mt-3`} >
-        <button  className={styles.button} type='submit'>Publicar</button>
-        <button className={styles.buttonCancel} type='button' onClick={onCloseButtonClick}>Cancelar</button>
-        </div>
-    </form>
+          </select>
+          <div className={`${styles.formButton} mt-3`}>
+            <button className={styles.button} type="submit">
+              Publicar
+            </button>
+            <button
+              className={styles.buttonCancel}
+              type="button"
+              onClick={onCloseButtonClick}
+            >
+              Cancelar
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
-    </div>
-  )
-}
+  );
+};
