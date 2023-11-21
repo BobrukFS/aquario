@@ -23,7 +23,7 @@ const Login = () => {
 
     axios({
       method: "post",
-      url: `${API_URL}/api/Auth/Login`,
+      url: `${API_URL}api/Auth/Login`,
       data: {
         username,
         password,
