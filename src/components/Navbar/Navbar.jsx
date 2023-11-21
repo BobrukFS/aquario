@@ -1,7 +1,12 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styles from "./navbar.module.css";
 
 export const Navbar = () => {
+
+    // const cambiarColor = (props) => {
+    //     return props.isActive ? { borderBottom: '20px solid black'} : {color: 'white'}
+    // }
+
     return(
         <div className= {styles.bar}>
             <nav className="nav navbar-expand-lg bg-body-tertiary">
@@ -9,15 +14,15 @@ export const Navbar = () => {
                     <ul className="nav justify-content-center">
 
                     <li className="nav-item">
-                        <Link className={`${styles.links}`} to="/campus"> <p className={`${styles.link_style}`}>Avisos</p> </Link>
+                        <NavLink className={`${styles.links}`} to="/campus" > <p className={`${styles.link_style}`}>Avisos</p> </NavLink>
                     </li> 
 
                     <li className="nav-item">
-                        <Link className={`${styles.links}`} to="/calendario"> <p className={`${styles.link_style}`}>Calendario</p> </Link>
+                        <NavLink className={`${styles.links}`} to="/calendario" > <p className={`${styles.link_style}`}>Calendario</p> </NavLink>
                     </li> 
                     
                     <li className="nav-item">
-                        <Link className={`${styles.links}`} to= "/participantes"> <p className={`${styles.link_style}`}>Participantes</p> </Link>
+                        <NavLink className={`${styles.links}`} to= "/participantes" > <p className={`${styles.link_style}`}>Participantes</p> </NavLink>
                     </li>
                     
                     </ul>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import styles from "./Header.module.css";
 
 export const Header = () => {
@@ -46,18 +46,18 @@ export const Header = () => {
           className={`${styles.header__nav} header__nav z-2 d-flex flex-column  flex-md-row  justify-content-center gap-5 justify-content-md-between align-items-center h-100 w-100 position-lg-relative top-0 start-0`}
         >
           <div className="d-flex flex-column align-items-center flex-md-row mx-4">
-            <Link
+            <NavLink
               className= "mb-4 mb-md-0 mx-md-3 text-dark"
               to="/campus"
             >
               Campus pescar
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
               className= "mb-4 mb-md-0 mx-md-3 text-dark"
               to="/foro"
             >
               Foro general
-            </Link>
+            </NavLink>
           </div>
           <div className="d-flex flex-column flex-md-row align-items-center gap-2">
             <img

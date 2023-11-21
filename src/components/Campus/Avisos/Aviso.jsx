@@ -1,6 +1,6 @@
 
 import styles from "./avisos.module.css";
-import Aviso1 from "../../assets/imgAviso1.jpg";
+import Aviso1 from "../../../assets/imgAviso1.jpg"
 
 
 
