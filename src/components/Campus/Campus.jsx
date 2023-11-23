@@ -1,7 +1,7 @@
-import { Header } from "../Header/Header"
+import { Header } from "../Header/Header";
 import { Navbar } from "../Navbar/Navbar";
-import { Avisos } from './Avisos/Avisos'
-import { Posteos } from './Posteos/Posteos'
+import { Avisos } from "./Avisos/Avisos";
+import { Posteos } from "./Avisos/Posteos";
 
 export const Campus = () => {
   return (

@@ -1,18 +1,19 @@
-import styles from "./avisos.module.css";
-import {Aviso} from "../../Campus/Avisos/Aviso"
+// import styles from "./avisos.module.css";
+// import {Posteos} from "../../Campus/Avisos/Posteos"
 
 export const Avisos = () => {
   return (
     <div>
     
-
+{/* 
       <section className={styles.container}>
-        {/* <h3 className={styles.title_aviso}>Avisos</h3> */}
+      
 
-        <Aviso/>
-        <Aviso/>
+        <Posteos/>
+ 
           
-      </section>
+      </section> */}
+      
     </div>
   );
 };

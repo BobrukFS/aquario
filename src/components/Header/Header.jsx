@@ -24,6 +24,11 @@ export const Header = () => {
       img[0].classList.replace("d-flex", "d-none")
   }
 
+  const cambiarColor = (props) => {
+    console.log(props)
+    return props.isActive ? { borderBottom: '2px solid orange' } : { color: 'white' }
+}
+
   return (
     <>
       <div
@@ -46,18 +51,22 @@ export const Header = () => {
           className={`${styles.header__nav} header__nav z-2 d-flex flex-column  flex-md-row  justify-content-center gap-5 justify-content-md-between align-items-center h-100 w-100 position-lg-relative top-0 start-0`}
         >
           <div className="d-flex flex-column align-items-center flex-md-row mx-4">
-            <NavLink
+          <NavLink
               className= "mb-4 mb-md-0 mx-md-3 text-dark"
-              to="/campus"
-            >
-              Campus pescar
-            </NavLink>
-            <NavLink
-              className= "mb-4 mb-md-0 mx-md-3 text-dark"
+              style={cambiarColor}
               to="/foro"
             >
               Foro general
             </NavLink>
+
+            <NavLink
+              className= "mb-4 mb-md-0 mx-md-3 text-dark"
+              style={cambiarColor}
+              to="/campus"
+            >
+              Campus pescar
+            </NavLink>
+            
           </div>
           <div className="d-flex flex-column flex-md-row align-items-center gap-2">
             <img
