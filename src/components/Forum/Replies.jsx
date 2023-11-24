@@ -39,7 +39,7 @@ export const Replies = () => {
   };
 
   const handleDeleteReply = (id) => {
-    axios.delete(`${API_URL}/api/Reply/${id}`).then((resp) =>
+    axios.delete(`${API_URL}api/Reply/${id}`).then((resp) =>
       setRepliesWithUserNames((prevReplies) => {
         const updatedReplies = prevReplies.filter((reply) => reply.id !== id);
         return updatedReplies;

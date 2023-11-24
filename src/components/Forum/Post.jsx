@@ -8,7 +8,7 @@ import moment from "moment/moment";
 export const Post = () => {
   const { forumId } = useParams();
   const { data, loading, error } = useFetchForo(
-    `${API_URL}/api/ForumThread/${forumId}`
+    `${API_URL}api/ForumThread/${forumId}`
   );
 
   return (
