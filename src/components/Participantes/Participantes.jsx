@@ -2,6 +2,7 @@ import { Header } from '../Header/Header'
 import { Navbar } from '../Navbar/Navbar'
 import { Usuario } from './Usuario/Usuario'
 import styles from './Participantes.module.css'
+import alumnos from './json/alumnos.json'
 
 export const Participantes = () => {
     return (
@@ -16,8 +17,8 @@ export const Participantes = () => {
                     </div>
                     <div className={styles.orden}>
                         <div>
-                            <h3>Alumnos</h3>
-                            <p>Total: 20</p>
+                            <h3>Participantes</h3>
+                            <p>Total: 46</p>
                         </div>
                         <div>
                             <select className={styles.select} name="" id="">
@@ -39,14 +40,24 @@ export const Participantes = () => {
                     <p>Rol</p>
                 </div>
 
-                <Usuario nombre="Juan López" role="Alumno" /> 
+                {
+                    alumnos.map((info) =>(
+                        <Usuario 
+                            imagen= {info.imagen}
+                            nombre= {info.nombre} 
+                            role={info.rol} 
+                            apellido={info.apellido}
+                        />
+                    ))
+                }
+                {/* <Usuario nombre="Juan López" role="Alumno" /> 
                 <Usuario nombre="Ana" role="Alumno" />
                 <Usuario nombre="Carlos" role="Alumno" />
                 <Usuario nombre="Juan" role="Alumno" />
                 <Usuario nombre="Ana" role="Alumno" />
                 <Usuario nombre="Carlos" role="Alumno" />
                 <Usuario nombre="María Sol" role="coordinadora" />
-                <Usuario nombre="Lucía Flores" role="coordinadora" />
+                <Usuario nombre="Lucía Flores" role="coordinadora" /> */}
             </section>
         </div>
     )

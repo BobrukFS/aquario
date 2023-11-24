@@ -7,8 +7,10 @@
 
 .personImg {
     width: 72px;
+    height: 72px;
     position: absolute;
     top: -30px;
+    border-radius: 100%;
 }
 
 .userPerson {
@@ -30,8 +32,9 @@
 
 }
 
-.userPerson h2 {
+.userPerson h3 {
     font-size: 25px;
+    text-align: center;
 }
 
 .userPerson p{
@@ -56,6 +59,11 @@
     }
     .personImg {
         position: unset;
+    }
+
+    .userPerson h3 {
+        font-size: 16px;
+        text-align: center;
     }
 
     .centro {
