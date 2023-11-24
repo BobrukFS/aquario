@@ -2,6 +2,7 @@ import styles from "./Modal.module.css";
 import { useEffect, useState, useRef, useCallback } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { API_URL } from "../../utilities/constants";
 
 export const Modal = ({ show, onCloseButtonClick }) => {
   const navigate = useNavigate();
@@ -23,7 +24,7 @@ export const Modal = ({ show, onCloseButtonClick }) => {
 
     axios({
       method: "post",
-      url: "https://aquariobackend20231101183627.azurewebsites.net/api/ForumThread",
+      url: `${API_URL}api/ForumThread`,
       data: {
         title,
         content,

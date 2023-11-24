@@ -5,3 +5,89 @@
     justify-content: center;
     margin: 50px;
 }
+
+.noVisible {
+    display: none;
+}
+
+.usuariosMobile {
+    display: none;
+}
+
+
+
+@media (max-width: 768px) {
+    .usuarios {
+        grid-template-columns: 320px;
+    }
+
+    .usuariosMobile{
+        display: block;
+    }
+
+    .noVisible {
+        display: flex;
+        justify-content: space-around;
+    }
+    .orden {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .orden p {
+        color: rgb(161, 159, 159);
+    }
+
+    button {
+        background-color: #ffffff;
+        padding: 10px;
+        border: 1px rgb(207, 207, 207) solid;
+        border-radius: 3px;
+    }
+
+    .botones {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 15px;
+    }
+
+    .botonAlumno:hover {
+        background-color: #fd73029a;
+    }
+
+    .botonCoordinadora:hover {
+        background-color: #293184b6;
+    }
+
+    .select {
+        padding: 5px;
+        border-radius: 5px;
+        background-color: gray;
+        color: #ffffff;
+    }
+
+    .buscador {
+        display: flex;
+        background-color: #eb7a1f;
+        border-radius: 15px;
+        margin-top: 10px;
+
+    }
+
+    .buscador span {
+        width: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .input {
+        width: 100%;
+        border-top-left-radius: 15px;
+        border-bottom-left-radius: 15px;
+        border: 1px #eb7a1f solid;
+    }
+
+    
+}

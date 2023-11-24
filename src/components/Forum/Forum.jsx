@@ -14,7 +14,7 @@ import { API_URL } from "../../utilities/constants";
 
 export const Forum = () => {
   const [showModal, setShowModal] = useState(false);
-  const { data, loading, error } = useFetchForo(`${API_URL}/api/ForumThread`);
+  const { data, loading, error } = useFetchForo(`${API_URL}api/ForumThread`);
 
   const { token } = useAuth();
 
