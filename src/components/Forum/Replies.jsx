@@ -9,7 +9,7 @@ export const Replies = () => {
   const [form, setForm] = useState({});
   const { forumId } = useParams();
   const { data, loading, error } = useFetchForo(
-    `${API_URL}/api/ForumThread/${forumId}`
+    `${API_URL}api/ForumThread/${forumId}`
   );
   const [repliesWithUserNames, setRepliesWithUserNames] = useState([]);
 
@@ -28,7 +28,7 @@ export const Replies = () => {
     event.preventDefault();
     const { content } = form;
     try {
-      const response = await axios.post(`${API_URL}/api/Reply`, {
+      const response = await axios.post(`${API_URL}api/Reply`, {
         forumThreadId: forumId,
         content,
       });
