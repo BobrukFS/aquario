@@ -52,5 +52,10 @@
     white-space: normal; /* Permitir saltos de línea automáticamente */
   }
 
+.modal-content{
+justify-content: center;
+align-items: center;
+
+}
 
 

@@ -19,6 +19,8 @@ export const Posteos = () => {
       {
         ...inputs,
         [e.target.name]: e.target.value,
+        [e.target.image]: e.target.value,
+
       }
     )
 
@@ -101,7 +103,7 @@ export const Posteos = () => {
 
           <div>
             <textarea 
-            
+            cols="50"
             name= "name"
             type= "text"
             value={inputs.name}
@@ -114,8 +116,8 @@ export const Posteos = () => {
             </textarea>
           </div>
 
-          <div className="mb-3">
-          <button  htmlFor="formFileMultiple" ><i><img src="src/assets/images.png" width={'15px'} alt="" /></i></button>
+          {/* <div className="mb-3">
+          <button  htmlFor="formFileMultiple" ><i><img src="src/assets/images.png" width={'35px'} alt="" /></i></button>
           <input
             type="file"
             value={inputs.image}
@@ -125,8 +127,8 @@ export const Posteos = () => {
             
             onChange={handleChange}
             multiple
-          /> 
-          </div>
+          />
+          </div> */}
   
 
       </div>
@@ -151,7 +153,7 @@ export const Posteos = () => {
         <div key={idx} className={styles.avisos}>
           
           <p>{item.name}</p>
-          {item.image && <img src={item.image} alt="Imagen" />}
+          {/* {item.image && <img src={item.image} alt="Imagen" />} */}
     
   <div className="buttons">
    <div className="btn-group">
