@@ -61,7 +61,7 @@ export const Header = () => {
           </div>
           <div className="d-flex flex-column flex-md-row align-items-center gap-2">
             <img
-              src="src/assets/Ellipse.jpg"
+              src="src/assets/Ellipse3.jpg"
               className="img_perfil rounded-circle"
               alt=""
               onClick={abrirMenuDropdown}/>

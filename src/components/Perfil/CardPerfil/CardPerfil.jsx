@@ -18,7 +18,7 @@ export const CardPerfil = ({tipo}) => {
         (tipo === "datos") ? (
         <div className={`container-fluid p-3 px-2 rounded-3 ${styles.perfilCard}`}>
         <div className="d-flex justify-content-start gap-2 flex-xxl-column align-items-xxl-center">
-            <img src="src/assets/Ellipse.jpg" className={`rounded-circle  ${styles.imgCard}`}></img>
+            <img src="src/assets/Ellipse3.jpg" className={`rounded-circle  ${styles.imgCard}`}></img>
             <p className="text-white fw-bold mb-xxl-2">{nombre}</p>
         </div>
     
