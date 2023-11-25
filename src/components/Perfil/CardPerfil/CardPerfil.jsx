@@ -9,6 +9,7 @@ export const CardPerfil = ({tipo}) => {
    if(loading){
     return <div>Cardando datos...</div>
    }
+
    const {nombre, mail, linkedin, ingreso, coordinadoras, centro, tematica} = data;
 
   return (
@@ -23,8 +24,8 @@ export const CardPerfil = ({tipo}) => {
     
         <div className={`data-container ${styles.dataContainer} rounded-3 p-2 d-flex flex-column gap-2 `}>
           <DataSection titulo="Nombre" value={nombre}></DataSection>
-          <DataSection titulo="Mail" value={mail} editable={true}></DataSection>
-          <DataSection titulo="Linkedin" value={linkedin} editable={true}></DataSection>
+          <DataSection titulo="mail" value={mail} editable={true}></DataSection>
+          <DataSection titulo="linkedin" value={linkedin} editable={true}></DataSection>
         </div>
       </div>
         ) :  (
