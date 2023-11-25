@@ -38,5 +38,10 @@
       "reacciones" : 30,
       "id" : 2
       }
+  ],
+  "avisos" : [
+    {
+      "name" : "La ia nos va a reemplazar por el gran avance que se ha mostrado en los ultimos meses donde pueden realizar tareas automatizadas a mayor velocidad y menos costo de recursos humanos"
+    }
   ]
 }

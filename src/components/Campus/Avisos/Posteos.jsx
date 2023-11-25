@@ -1,6 +1,7 @@
+import { useEffect } from "react";
 import styles from "./posteos.module.css";
 import {useState} from "react"
-
+import useFetch from "../../../Hooks/useFetch"
 
 
 export const Posteos = () => {
@@ -71,7 +72,9 @@ export const Posteos = () => {
     setEditIndex(index);  
   };
 
- 
+  const {data} =   useFetch('http://localhost:3000/avisos')
+  console.log(data);
+
 
   return (
 
@@ -149,7 +152,7 @@ export const Posteos = () => {
 
     <div className={styles.container}>
       {
-      tableData.map((item , idx)=>(
+     tableData.map((item , idx)=>(
         <div key={idx} className={styles.avisos}>
           
           <p>{item.name}</p>
