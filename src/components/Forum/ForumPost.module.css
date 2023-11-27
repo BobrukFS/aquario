@@ -23,6 +23,7 @@
 .circle {
   width: 75px;
   margin-right: 0.8rem;
+  border-radius: 50%;
 }
 
 .arrow {
@@ -33,7 +34,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #004a30;
   width: 100px;
   height: 40px;
   color: rgb(228, 227, 227);
