@@ -4,23 +4,18 @@ export const Usuario = (props) => {
 
     return (
         <>
-            {
-                props.role == "coordinadora"
-                    ?
-                    <div className={styles.userPerson + " " + styles.coordinadora}>
-                        <img className={styles.personImg} src={props.imagen} alt="User" />
-                        <h3>{props.nombre} {props.apellido}</h3>
-                        <p>{props.role}</p>
-                        <p className={styles.centro}>Centro Pescar Santander</p>
+         
+                    <div className={`${styles.userPerson} mt-2  justify-content-center gap-2 row p-2 border-bottom ${styles.coordinadora} `}>
+                        <img className={`${styles.personImg} col-4 p-0`} src={props.imagen} alt="User" />
+                        <div className='d-flex flex-wrap gap-1 col-4 p-0 justify-content-center'>
+                            <p>{props.nombre}</p> 
+                            <p>{props.apellido}</p>
+                        </div>
+                        <p className='col-4 p-0 text-center'>{props.role}</p>
+                     
                     </div>
-                    :
-                    <div className={styles.userPerson}>
-                        <img className={styles.personImg} src={props.imagen} alt="User" />
-                        <h3>{props.nombre} {props.apellido}</h3>
-                        <p>{props.role}</p>
-                        <p className={styles.centro}>Centro Pescar Santander</p>
-                    </div>
-            }
+              
+       
         </>
     )
 }

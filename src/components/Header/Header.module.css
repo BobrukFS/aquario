@@ -40,6 +40,7 @@ color: rgb(140, 7, 29);
   height: 4px;
   background: #f79526;
   transition: all 0.3s;
+  position: relative;
 }
 
 .box span + span {
@@ -63,6 +64,7 @@ color: rgb(140, 7, 29);
 .box .not-active span:nth-child(3) {
   animation: ease 0.7s bottom-2 forwards;
 }
+
 @keyframes top {
   0% {
     top: 0;
@@ -73,17 +75,17 @@ color: rgb(140, 7, 29);
     transform: rotate(0);
  }
   100% {
-    top: 22px;
+    top: 10px;
     transform: rotate(45deg);
  }
 }
 @keyframes top-2 {
   0% {
-    top: 22px;
+    top: 10px;
     transform: rotate(45deg);
  }
   50% {
-    top: 22px;
+    top: 10px;
     transform: rotate(0deg);
  }
   100% {
@@ -91,6 +93,8 @@ color: rgb(140, 7, 29);
     transform: rotate(0deg);
  }
 }
+
+
 @keyframes bottom {
   0% {
     bottom: 0;
@@ -101,24 +105,25 @@ color: rgb(140, 7, 29);
     transform: rotate(0);
  }
   100% {
-    bottom: 22px;
+    bottom: 8px;
     transform: rotate(135deg);
  }
 }
 @keyframes bottom-2 {
   0% {
-    bottom: 22px;
+    bottom: 8px;
     transform: rotate(135deg);
  }
   50% {
-    bottom: 22px;
+    bottom: 8px;
     transform: rotate(0);
  }
   100% {
-    bottom: 0;
+    bottom: 0px;
     transform: rotate(0);
  }
 }
+
 @keyframes scaled {
   50% {
     transform: scale(0);
@@ -148,4 +153,14 @@ color: rgb(140, 7, 29);
   .header .header__nav a {
     color: #442c2e;
  }
+}
+
+
+.menu{
+  position: absolute;
+  top: 100%;
+  right: 50%;
+  background-color: #e0d9d3;
+  border: 1px solid #f79526;
+  min-width: 200px;
 }

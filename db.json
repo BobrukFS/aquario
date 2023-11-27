@@ -1,47 +1,352 @@
 {
-  "usuarios" : [
+  "usuarios": [
     {
-      "nombre" : "Juana de Arco",
-      "mail" : "juanadearco@gmail.com",
-      "linkedin" : "juanadearco/in",
-      "ingreso" : "10/06/2023",
-      "coordinadoras" : ["Ana Maria Polo", "Kim Kardashian"],
-      "centro" : "Santander",
-      "tematica" : "Desarrollo web Full-stack",
-      "id" : 1
+      "nombre": "Juana de Arco",
+      "mail": "juanadearco@gmail.com",
+      "linkedin": "juanadearco/in",
+      "ingreso": "10/06/2023",
+      "coordinadoras": [
+        "Ana Maria Polo",
+        "Kim Kardashian"
+      ],
+      "centro": "Santander",
+      "tematica": "Desarrollo web Full-stack",
+      "id": 1
     },
     {
-      "nombre" : "Manolo",
-      "mail" : "manolo@gmail.com",
-      "linkedin" : "manolo/in",
-      "ingreso" : "10/06/2023",
-      "coordinadoras" : ["Ana Maria Polo", "Kim Kardashian"],
-      "id" : 2
+      "nombre": "Manolo",
+      "mail": "manolo@gmail.com",
+      "linkedin": "manolo/in",
+      "ingreso": "10/06/2023",
+      "coordinadoras": [
+        "Ana Maria Polo",
+        "Kim Kardashian"
+      ],
+      "id": 2
     }
   ],
-  "publicaciones" : [
+  "publicaciones": [
     {
-    "titulo" : "¿La IA va a reemplazar a los programadores?",
-    "tematica" : "Programacion",
-    "contenido" : "La ia nos va a reemplazar por el gran avance que se ha mostrado en los ultimos meses donde pueden realizar tareas automatizadas a mayor velocidad y menos costo de recursos humanos",
-    "fecha" : "10/06/2023",
-    "comentarios" : 25,
-    "reacciones" : 30,
-    "id" : 1
+      "titulo": "¿La IA va a reemplazar a los programadores?",
+      "tematica": "Programacion",
+      "contenido": "La ia nos va a reemplazar por el gran avance que se ha mostrado en los ultimos meses donde pueden realizar tareas automatizadas a mayor velocidad y menos costo de recursos humanos",
+      "fecha": "10/06/2023",
+      "comentarios": 25,
+      "reacciones": 30,
+      "id": 1
     },
     {
-      "titulo" : "¿La IA va a reemplazar a los programadores?",
-      "tematica" : "Programacion",
-      "contenido" : "La ia nos va a reemplazar por el gran avance que se ha mostrado en los ultimos meses donde pueden realizar tareas automatizadas a mayor velocidad y menos costo de recursos humanos",
-      "fecha" : "10/06/2023",
-      "comentarios" : 25,
-      "reacciones" : 30,
-      "id" : 2
-      }
+      "titulo": "¿La IA va a reemplazar a los programadores?",
+      "tematica": "Programacion",
+      "contenido": "La ia nos va a reemplazar por el gran avance que se ha mostrado en los ultimos meses donde pueden realizar tareas automatizadas a mayor velocidad y menos costo de recursos humanos",
+      "fecha": "10/06/2023",
+      "comentarios": 25,
+      "reacciones": 30,
+      "id": 2
+    }
   ],
-  "avisos" : [
+  "avisos": [
     {
-      "name" : "La ia nos va a reemplazar por el gran avance que se ha mostrado en los ultimos meses donde pueden realizar tareas automatizadas a mayor velocidad y menos costo de recursos humanos"
+      "title": "Evento SantaDev 22/12",
+      "name": "Chicos, estan invitados al evento del 22 de Diciembre. Es una oportunidad muy importante para hacer networking",
+      "img": "",
+      "id": 1
+    },
+    {
+      "title": "No hay clases",
+      "name": "El dia 26/11 no habra clases",
+      "img": "",
+      "id": 2
+    },
+    {
+      "title": "WorkTec",
+      "name": "El dia 10/11 habra una feria de empleo. Es una buena oportunidad para hacerse conocer por las empresas y dejar el curriculum",
+      "img": "C:\\fakepath\\inteligencia-artificial.png",
+      "id": 3
+    },
+    {
+      "title": "a",
+      "name": "a",
+      "img": "C:\\fakepath\\inteligencia-artificial.png",
+      "id": 4
+    }
+  ],
+  "alumnos": [
+    {
+      "nombre": "Maria",
+      "apellido": "Bereterbide",
+      "imagen": "https://media.licdn.com/dms/image/D4D03AQH8Kq07ZqpaFw/profile-displayphoto-shrink_800_800/0/1681482235623?e=2147483647&v=beta&t=R5ZvQpLEFFu5oon6uRoRm54OAtk9NBdZpG7YUnHdQLo",
+      "rol": "Coordinadora"
+    },
+    {
+      "nombre": "Florencia",
+      "apellido": "Cocorullo",
+      "imagen": "https://media.licdn.com/dms/image/C4D03AQFrPAQsYGPK_A/profile-displayphoto-shrink_800_800/0/1591991990642?e=2147483647&v=beta&t=R4aSERjweYYY0E-Ni2973fI8Cf54S63UF5vnIH66XVM",
+      "rol": "Coordinadora"
+    },
+    {
+      "nombre": "Valentina Milagros",
+      "apellido": "Castillo",
+      "imagen": "https://media.licdn.com/dms/image/D4D03AQHPjsqZPtC5Uw/profile-displayphoto-shrink_800_800/0/1687311282028?e=2147483647&v=beta&t=y3EHGQ25aJfyNKfaAleMtJWdiqLibjYHRYAY-8IKjAc",
+      "rol": "Alumno"
+    },
+    {
+      "nombre": "Diana",
+      "apellido": "Teixeira",
+      "imagen": "https://media.licdn.com/dms/image/D4D03AQFsuqXL5nFmkA/profile-displayphoto-shrink_800_800/0/1690999915681?e=2147483647&v=beta&t=B8TCj4ovKvk6Mao3GqWiyC7EEKKXhUl37BpRfKb6mGM",
+      "rol": "Alumno"
+    },
+    {
+      "nombre": "Matias",
+      "apellido": "Losito",
+      "imagen": "https://media.licdn.com/dms/image/D4D03AQGsNmbw22qfAA/profile-displayphoto-shrink_800_800/0/1690177856130?e=2147483647&v=beta&t=Gg3ssZ8ysW93jnpPlCgi0u5rQHa3c3URL8VN4mqQktA",
+      "rol": "Alumno"
+    },
+    {
+      "nombre": "Agustina",
+      "apellido": "Suárez Valduga",
+      "imagen": "https://media.licdn.com/dms/image/D4D03AQElWHN-_widZw/profile-displayphoto-shrink_800_800/0/1696874893441?e=2147483647&v=beta&t=CTz5TAzBnLekCFCBM0y2XND45-7hlzAW3knjZpoBWVA",
+      "rol": "Alumno"
+    },
+    {
+      "nombre": "Sebastián",
+      "apellido": "Vera Benítez",
+      "imagen": "https://media.licdn.com/dms/image/C4E03AQHPsCmrcIDyIQ/profile-displayphoto-shrink_800_800/0/1631560125797?e=2147483647&v=beta&t=JAgTE2OO8O25zxYYjGsy03rWLxBHTVeilZrYijNCXNU",
+      "rol": "Alumno"
+    },
+    {
+      "nombre": "Sol Johanna",
+      "apellido": "Torres",
+      "imagen": "https://media.licdn.com/dms/image/D4D03AQGEST9XC8Zy-Q/profile-displayphoto-shrink_800_800/0/1690425446836?e=2147483647&v=beta&t=du7pvZHq7HCFmis1n1buHyheb0twYLCkSTlWlydi29M",
+      "rol": "Alumno"
+    },
+    {
+      "nombre": "Martin",
+      "apellido": "Virun",
+      "imagen": "https://media.licdn.com/dms/image/D4E03AQFdOg9RG0pg7Q/profile-displayphoto-shrink_800_800/0/1682656161762?e=2147483647&v=beta&t=k5Ik1mWwijS9T8edGY-0rqQcgDuBKZQRomKfd5SXCOE",
+      "rol": "Alumno"
+    },
+    {
+      "nombre": "Nahuel",
+      "apellido": "Jordan",
+      "imagen": "https://media.licdn.com/dms/image/D4D03AQHvHkdHivBzyQ/profile-displayphoto-shrink_800_800/0/1686784733229?e=2147483647&v=beta&t=Om8vUvTZxHA93vkP3420AHYHVfAZbMs4cHVeyx1iVKA",
+      "rol": "Alumno"
+    },
+    {
+      "nombre": "Ezequiel",
+      "apellido": "Bobruk",
+      "imagen": "https://media.licdn.com/dms/image/D4D03AQFRUmhBT8IxPQ/profile-displayphoto-shrink_800_800/0/1692154515653?e=2147483647&v=beta&t=IkVTjmbPZOjHuI8wX7Ly1VJUkpYnkJ6UvKbq-2hH_uU",
+      "rol": "Alumno"
+    },
+    {
+      "nombre": "Juan Ignacio",
+      "apellido": "Sánchez Ávila",
+      "imagen": "https://media.licdn.com/dms/image/D4D03AQH1X0RHhLWUlA/profile-displayphoto-shrink_800_800/0/1689804282920?e=2147483647&v=beta&t=jNWxUTPkykXwM3M4Uk2VRo2ZYH3gTBDtzu96qecMLao",
+      "rol": "Alumno"
+    },
+    {
+      "nombre": "Gabriel Nahuel",
+      "apellido": "Quiroga",
+      "imagen": "https://media.licdn.com/dms/image/D4D03AQGy9GkjS5zLng/profile-displayphoto-shrink_800_800/0/1690918933314?e=2147483647&v=beta&t=CEXiJ9NRhEpO7DNkgk36STqMev6cdSVcQZdCOXhgLyg",
+      "rol": "Alumno"
+    },
+    {
+      "nombre": "Sebastián",
+      "apellido": "Tapia Marca",
+      "imagen": "https://media.licdn.com/dms/image/D4D03AQFp1ofjrnujxg/profile-displayphoto-shrink_800_800/0/1670452829358?e=2147483647&v=beta&t=rdDzdZkNba3CQ8E6hdf1ph7C78TcE29i2mm8jMsnp4Y",
+      "rol": "Alumno"
+    },
+    {
+      "nombre": "Jeremias",
+      "apellido": "Imperiales",
+      "imagen": "https://media.licdn.com/dms/image/D4D03AQHXPc41eWTMUA/profile-displayphoto-shrink_800_800/0/1690917573835?e=2147483647&v=beta&t=d-UVfXrNt3D29b62XZ6zhjJMs4GVnPQAZugpQSJLN7o",
+      "rol": "Alumno"
+    },
+    {
+      "nombre": "Daiana",
+      "apellido": "Paillacar",
+      "imagen": "https://media.licdn.com/dms/image/D4D03AQHrRs0FiTK_oQ/profile-displayphoto-shrink_800_800/0/1675107544000?e=2147483647&v=beta&t=P0ehCL71a-f_jDSfyNjmQgtTRYOySFb9hLi4vnj-XV4",
+      "rol": "Alumno"
+    },
+    {
+      "nombre": "Adrián",
+      "apellido": "Agüero",
+      "imagen": "https://media.licdn.com/dms/image/D4D03AQFDq0bmEqBo_w/profile-displayphoto-shrink_800_800/0/1690224400869?e=2147483647&v=beta&t=m7zHwa7BxAaF0BO-ZQfKqewpqHsxyF4bB2sbalTL9Hk",
+      "rol": "Alumno"
+    },
+    {
+      "nombre": "Florencia",
+      "apellido": "Batalla",
+      "imagen": "https://media.licdn.com/dms/image/D4D03AQGLq1-mq1Y3DQ/profile-displayphoto-shrink_800_800/0/1691026812393?e=2147483647&v=beta&t=zxa6ei0q0zKsSVV7R6mNIk44ta8h8idfuyw4juFIdN8",
+      "rol": "Alumno"
+    },
+    {
+      "nombre": "Camila",
+      "apellido": "Gamecho",
+      "imagen": "https://media.licdn.com/dms/image/D4D03AQEzesL3H9yc0A/profile-displayphoto-shrink_800_800/0/1690063729904?e=2147483647&v=beta&t=Fsyr_yxGI9sp0-wtCsg43SA0HNRRR3Zg6FYgm6E_oD0",
+      "rol": "Alumno"
+    },
+    {
+      "nombre": "Daiana Elízabeth",
+      "apellido": "Sanchez",
+      "imagen": "https://media.licdn.com/dms/image/D4D03AQELcq_9katiGg/profile-displayphoto-shrink_800_800/0/1697410387099?e=2147483647&v=beta&t=U4tCwmhx4tdkP9n4kElc56BJ0uCSwf7fvGqKAiayOpg",
+      "rol": "Alumno"
+    },
+    {
+      "nombre": "Leila Rocío",
+      "apellido": "Romero",
+      "imagen": "https://media.licdn.com/dms/image/D4D03AQHAZ365xctyCg/profile-displayphoto-shrink_800_800/0/1691724613470?e=2147483647&v=beta&t=5RH8v4iteYOebt40W6UdFXxjF9v66S7lnwalaBREFYs",
+      "rol": "Alumno"
+    },
+    {
+      "nombre": "Brian",
+      "apellido": "Alcaraz",
+      "imagen": "https://media.licdn.com/dms/image/D4D03AQFiDvDZp-4zzw/profile-displayphoto-shrink_800_800/0/1694707317829?e=2147483647&v=beta&t=tylkm4HOHWjQlvCwnXVxwPLdG6QbBHTf34i7Q2J3Rnc",
+      "rol": "Alumno"
+    },
+    {
+      "nombre": "Luana",
+      "apellido": "Martinez",
+      "imagen": "https://media.licdn.com/dms/image/D4D03AQETO8l6TxLlYQ/profile-displayphoto-shrink_800_800/0/1691345629568?e=2147483647&v=beta&t=7Dz8Aw4qULLGeFKcdGEFoaHGIwuSLxOj7ulb3OtlzjQ",
+      "rol": "Alumno"
+    },
+    {
+      "nombre": "Valentina",
+      "apellido": "Ester Rodriguez",
+      "imagen": "https://media.licdn.com/dms/image/D4D03AQGe_KliydGRPg/profile-displayphoto-shrink_800_800/0/1689805344553?e=2147483647&v=beta&t=5_PSZVt7U4EQFyae_wHaji7E_WNUM_WTEc7lEOtyCMg",
+      "rol": "Alumno"
+    },
+    {
+      "nombre": "Leonardo Joaquin",
+      "apellido": "Cauna Hernandez",
+      "imagen": "https://media.licdn.com/dms/image/D4E03AQFamaQlSCmprA/profile-displayphoto-shrink_800_800/0/1682971332112?e=2147483647&v=beta&t=MvhKX99cWlRoQY0J6CaHUUnOGtU1ex9qasd45TA21qg",
+      "rol": "Alumno"
+    },
+    {
+      "nombre": "Joaquin",
+      "apellido": "Fernandes",
+      "imagen": "https://media.licdn.com/dms/image/D4D03AQETWfmVrvoyBg/profile-displayphoto-shrink_800_800/0/1689823839912?e=2147483647&v=beta&t=LijpK_ybGwJ1cS-XdtjqewuStSPJxwMlA_wojVP9oVE",
+      "rol": "Alumno"
+    },
+    {
+      "nombre": "Jeremias",
+      "apellido": "Alvarenga",
+      "imagen": "https://media.licdn.com/dms/image/D4D03AQGWJDXGV8OX_w/profile-displayphoto-shrink_800_800/0/1690338740983?e=2147483647&v=beta&t=sFruERE_FqC7KhLbBI-nP4nvelbDImEyUsGvfa4vZxY",
+      "rol": "Alumno"
+    },
+    {
+      "nombre": "Jeronimo",
+      "apellido": "Vega",
+      "imagen": "https://media.licdn.com/dms/image/D4D03AQGICapVTbFbhw/profile-displayphoto-shrink_800_800/0/1691109148981?e=2147483647&v=beta&t=Az8Xg4btQfrbXmPtSanYTzXKLVInxhS1uO9TH_h-kDc",
+      "rol": "Alumno"
+    },
+    {
+      "nombre": "Lucas",
+      "apellido": "Portillo",
+      "imagen": "https://media.licdn.com/dms/image/D4D03AQE6OvPu9TPDBw/profile-displayphoto-shrink_800_800/0/1684513582006?e=2147483647&v=beta&t=0W8KN_HzrRDvKIf-ZoLrxSw79DGF-3hqFm9OoO0t4RE",
+      "rol": "Alumno"
+    },
+    {
+      "nombre": "Agustina",
+      "apellido": "Presentado",
+      "imagen": "https://media.licdn.com/dms/image/D4D03AQG_02tHe7voDg/profile-displayphoto-shrink_800_800/0/1700067689149?e=2147483647&v=beta&t=ENSiDKOVa-DXwkaRXely3YYeZlv9nyg_Ak3KZFXh-1w",
+      "rol": "Alumno"
+    },
+    {
+      "nombre": "Fabián",
+      "apellido": "Gómez Laguna",
+      "imagen": "https://media.licdn.com/dms/image/D4D03AQG3Kt3HfRaWgg/profile-displayphoto-shrink_800_800/0/1689830459018?e=2147483647&v=beta&t=zh0yZAav7NTYIR9xv4meT8TicmlCyT2y0fo-vkFCNbk",
+      "rol": "Alumno"
+    },
+    {
+      "nombre": "Juan Pablo",
+      "apellido": "Leonel Aguirre",
+      "imagen": "https://media.licdn.com/dms/image/D4D03AQHGpdHcgc9gmQ/profile-displayphoto-shrink_800_800/0/1690397478145?e=2147483647&v=beta&t=mux8gbXFOdduq373gM67N9pbO4DuOAb-ToUXY5bc4y4",
+      "rol": "Alumno"
+    },
+    {
+      "nombre": "Ivan",
+      "apellido": "Venegas",
+      "imagen": "https://media.licdn.com/dms/image/D4D03AQEl4ccKPlZCCA/profile-displayphoto-shrink_800_800/0/1688996372285?e=2147483647&v=beta&t=QaPid6ZXNqSfqEnEQHn05MdkSnS1amxVmopiV_RVObU",
+      "rol": "Alumno"
+    },
+    {
+      "nombre": "Soledad Rocio",
+      "apellido": "Quispe Sanchez",
+      "imagen": "https://media.licdn.com/dms/image/D5603AQHNnKAwqe5BgQ/profile-displayphoto-shrink_200_200/0/1689866761619?e=1706140800&v=beta&t=cTPvx-iitHb-jGH7OUsUeHnMVxCbjXTnhdDVO_QRYgA",
+      "rol": "Alumno"
+    },
+    {
+      "nombre": "Germán",
+      "apellido": "Pungitore",
+      "imagen": "https://media.licdn.com/dms/image/D4D03AQGMX_TyeW74Lg/profile-displayphoto-shrink_200_200/0/1694640519010?e=2147483647&v=beta&t=FoZOxtgOxsD0fBj9erLjl3YptRh5J4xY2de2Qc0_UZE",
+      "rol": "Alumno"
+    },
+    {
+      "nombre": "Rodrigo",
+      "apellido": "Cabrera",
+      "imagen": "https://media.licdn.com/dms/image/D4D03AQEkH-jbwZG-9g/profile-displayphoto-shrink_100_100/0/1694108346056?e=1706140800&v=beta&t=1T_8VV46GA1bxJ4fe4VVC4TcOWNVtAp80lN_3dzc0IM",
+      "rol": "Alumno"
+    },
+    {
+      "nombre": "Alexander",
+      "apellido": "Mamani",
+      "imagen": "https://media.licdn.com/dms/image/D4D03AQGbgyoYeBvZiQ/profile-displayphoto-shrink_100_100/0/1699464119275?e=1706140800&v=beta&t=4j4PD0-ECR8c9elm6xpAzsIO0Nk19im_XxtvvcMhqEY",
+      "rol": "Alumno"
+    },
+    {
+      "nombre": "Romina",
+      "apellido": "Liporance",
+      "imagen": "https://media.licdn.com/dms/image/D4D03AQH5-fLRrNHZdQ/profile-displayphoto-shrink_100_100/0/1690939031168?e=1706140800&v=beta&t=dFhexitT1zPKLdcIl-kdTgSP_gRsAc0EAERZ0datYJg",
+      "rol": "Alumno"
+    },
+    {
+      "nombre": "Nahuel",
+      "apellido": "Cordoba",
+      "imagen": "https://media.licdn.com/dms/image/D5603AQGPr-Dy0clV-g/profile-displayphoto-shrink_100_100/0/1690570760385?e=1706140800&v=beta&t=jwDrPcfyShZ2vxgyytYuIGrUCGz-bVPJIuyCeDfjmd4",
+      "rol": "Alumno"
+    },
+    {
+      "nombre": "Paula",
+      "apellido": "Moreno",
+      "imagen": "https://media.licdn.com/dms/image/D4D03AQEHrDUrnAtvZw/profile-displayphoto-shrink_100_100/0/1686860486069?e=1706140800&v=beta&t=S3Q51N9gZALbgPBMAWoZOEt8jRuRxzblPGttZ3HsFLw",
+      "rol": "Alumno"
+    },
+    {
+      "nombre": "Verónica",
+      "apellido": "Vega",
+      "imagen": "https://cdn.discordapp.com/attachments/1168750269383856150/1177431678642307122/image.png?ex=65727bb3&is=656006b3&hm=0aedd81bb8690f12b84e3b1f9d52012fd02935fe81b3dd1d663d0490f6dadc60&",
+      "rol": "Alumno"
+    },
+    {
+      "nombre": "Carolina Beatriz",
+      "apellido": "Juarez",
+      "imagen": "https://media.discordapp.net/attachments/1168750269383856150/1177432126203900035/image.png?ex=65727c1e&is=6560071e&hm=c6dc165ade2f7c4335aeb349886b921e5a3591e3188375f860841e8876e3b436&=&format=webp",
+      "rol": "Alumno"
+    },
+    {
+      "nombre": "Jorge Sebastián",
+      "apellido": "Prymak",
+      "imagen": "https://cdn.discordapp.com/attachments/1168750269383856150/1177432589015994399/image.png?ex=65727c8c&is=6560078c&hm=bb9590332be86952ae7226100704245c482435735e8c960f786a35604af2de74&",
+      "rol": "Alumno"
+    },
+    {
+      "nombre": "Gonzalo",
+      "apellido": "Delvalle",
+      "imagen": "https://cdn.discordapp.com/attachments/1168750269383856150/1177432625481261127/image.png?ex=65727c95&is=65600795&hm=eb07efab422e6386c68316c1236317d9cab01adc2a53a2640f867d1a75d8754c&",
+      "rol": "Alumno"
+    },
+    {
+      "nombre": "Lucas",
+      "apellido": "Gaspar",
+      "imagen": "https://cdn.discordapp.com/attachments/1168750269383856150/1177432905522352169/image.png?ex=65727cd8&is=656007d8&hm=43f50794f00033421c609c0c2e44ae5f484a8d9805e4cb58f17166e003368434&",
+      "rol": "Alumno"
+    },
+    {
+      "nombre": "Lisandro",
+      "apellido": "Fideleff",
+      "imagen": "https://cdn.discordapp.com/attachments/1168750269383856150/1177433242211717241/image.png?ex=65727d28&is=65600828&hm=7eb46dcae29c642ab315902d9ed7167bf9e65387c31eb42cd29b86418ca942e0&",
+      "rol": "Alumno"
     }
   ]
 }

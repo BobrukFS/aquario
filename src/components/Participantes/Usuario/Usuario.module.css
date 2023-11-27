@@ -1,72 +1,15 @@
-.socialImg {
-    width: 32px;
-    position: absolute;
-    bottom: 10px;
-    right: 12px;    
-}
+.userPerson p{
+    font-size: 13px;
 
-.personImg {
-    width: 72px;
-    height: 72px;
-    position: absolute;
-    top: -30px;
-    border-radius: 100%;
 }
 
 .userPerson {
-    background-color: #fd73029a;
-    box-shadow: 3px 3px 15px #e85804ce; 
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    /* width: 12rem;
-    height: 12rem; */
-    /* padding: 2rem; */
-    width: 230px;
-    height: 230px;
-    padding: 20px;
-    margin: 30px;
-    border-radius: 10px;
-    position: relative;
-
+    width: 90%;
 }
 
-.userPerson h3 {
-    font-size: 25px;
-    text-align: center;
-}
-
-.userPerson p{
-    font-size: 15px;
-}
-
-.coordinadora {
-    background-color: #1f288c94;
-    box-shadow: 3px 3px 15px #293184; 
-}
-
-@media (max-width: 768px) {
-    .userPerson {
-        margin: 0px;
-        flex-direction: unset;
-        width: 300px;
-        height: 100px;
-        background-color: #ffffff;
-        box-shadow: none;
-        justify-content: space-between;
-        padding: 0px;
-    }
-    .personImg {
-        position: unset;
-    }
-
-    .userPerson h3 {
-        font-size: 16px;
-        text-align: center;
-    }
-
-    .centro {
-        display: none;
-    }
+.personImg{
+    max-width: 50px;
+    border-radius: 50%;
 }
