@@ -1,13 +1,17 @@
-.header{
+.header {
   display: none;
-  border-bottom: 1px solid #FD7202;
+  border-bottom: 1px solid #fd7202;
+}
+
+.img_perfil {
+  width: 100px;
 }
 
 .header .header__nav {
   transform: translateX(100vw);
   transition: all 1s ease;
   position: fixed;
-  background-color: #FD7202;
+  background-color: #fd7202;
   min-height: 100vh;
   z-index: 3;
 }
@@ -16,8 +20,8 @@
   text-decoration: none;
 }
 
-.links{
-color: rgb(140, 7, 29);
+.links {
+  color: rgb(140, 7, 29);
 }
 .header .header__nav.desplegado {
   transform: translateX(0vw);
@@ -30,7 +34,7 @@ color: rgb(140, 7, 29);
   padding: 1rem;
 }
 
-.box{
+.box {
   z-index: 4;
 }
 
@@ -67,76 +71,76 @@ color: rgb(140, 7, 29);
   0% {
     top: 0;
     transform: rotate(0);
- }
+  }
   50% {
     top: 22px;
     transform: rotate(0);
- }
+  }
   100% {
     top: 22px;
     transform: rotate(45deg);
- }
+  }
 }
 @keyframes top-2 {
   0% {
     top: 22px;
     transform: rotate(45deg);
- }
+  }
   50% {
     top: 22px;
     transform: rotate(0deg);
- }
+  }
   100% {
     top: 0;
     transform: rotate(0deg);
- }
+  }
 }
 @keyframes bottom {
   0% {
     bottom: 0;
     transform: rotate(0);
- }
+  }
   50% {
     bottom: 22px;
     transform: rotate(0);
- }
+  }
   100% {
     bottom: 22px;
     transform: rotate(135deg);
- }
+  }
 }
 @keyframes bottom-2 {
   0% {
     bottom: 22px;
     transform: rotate(135deg);
- }
+  }
   50% {
     bottom: 22px;
     transform: rotate(0);
- }
+  }
   100% {
     bottom: 0;
     transform: rotate(0);
- }
+  }
 }
 @keyframes scaled {
   50% {
     transform: scale(0);
- }
+  }
   100% {
     transform: scale(0);
- }
+  }
 }
 @keyframes scaled-2 {
   0% {
     transform: scale(0);
- }
+  }
   50% {
     transform: scale(0);
- }
+  }
   100% {
     transform: scale(1);
- }
+  }
 }
 @media (min-width: 768px) {
   .header .header__nav {
@@ -144,8 +148,8 @@ color: rgb(140, 7, 29);
     position: static;
     background-color: transparent;
     min-height: fit-content;
- }
+  }
   .header .header__nav a {
     color: #442c2e;
- }
+  }
 }

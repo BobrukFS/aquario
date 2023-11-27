@@ -1,8 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
+import axios from "axios";
+import { API_URL } from "../../utilities/constants";
+import { jwtDecode } from "jwt-decode";
 
 export const Header = () => {
+  const token = localStorage.getItem("token");
+  const decodedJwt = jwtDecode(token);
+
+  const loggedUserId =
+    decodedJwt[
+      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"
+    ];
+  const [profilePicture, setProfilePicture] = useState("");
+
   const abrirMenu = () => {
     const btn = document.getElementsByClassName("btn1");
     const nav = document.getElementsByClassName("header__nav");
@@ -15,14 +27,20 @@ export const Header = () => {
     }
   };
 
-  const abrirMenuDropdown = () =>{
-      const img = document.getElementsByClassName("img_perfil");
+  const abrirMenuDropdown = () => {
+    const img = document.getElementsByClassName("img_perfil");
 
-      if(img[0].classList.contains("d-none")){
-        img[0].classList.replace("d-none", "d-flex")
-      }
-      img[0].classList.replace("d-flex", "d-none")
-  }
+    if (img[0].classList.contains("d-none")) {
+      img[0].classList.replace("d-none", "d-flex");
+    }
+    img[0].classList.replace("d-flex", "d-none");
+  };
+
+  useEffect(() => {
+    axios
+      .get(`${API_URL}api/Auth/${loggedUserId}`)
+      .then((x) => setProfilePicture(x.data.profilePictureUrl));
+  }, []);
 
   return (
     <>
@@ -46,25 +64,20 @@ export const Header = () => {
           className={`${styles.header__nav} header__nav z-2 d-flex flex-column  flex-md-row  justify-content-center gap-5 justify-content-md-between align-items-center h-100 w-100 position-lg-relative top-0 start-0`}
         >
           <div className="d-flex flex-column align-items-center flex-md-row mx-4">
-            <Link
-              className= "mb-4 mb-md-0 mx-md-3 text-dark"
-              to="/campus"
-            >
+            <Link className="mb-4 mb-md-0 mx-md-3 text-dark" to="/campus">
               Campus pescar
             </Link>
-            <Link
-              className= "mb-4 mb-md-0 mx-md-3 text-dark"
-              to="/foro"
-            >
+            <Link className="mb-4 mb-md-0 mx-md-3 text-dark" to="/foro">
               Foro general
             </Link>
           </div>
           <div className="d-flex flex-column flex-md-row align-items-center gap-2">
             <img
-              src="src/assets/Ellipse.jpg"
-              className="img_perfil rounded-circle"
+              src={profilePicture}
+              className={`${styles.img_perfil} rounded-circle`}
               alt=""
-              onClick={abrirMenuDropdown}/>
+              onClick={abrirMenuDropdown}
+            />
             <ul className="m-0 p-0 d-none flex-column align-items-center">
               <p>Ver mi perfil</p>
               <p>Configuracion</p>
