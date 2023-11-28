@@ -15,6 +15,7 @@ export const Replies = () => {
   const [repliesWithUserNames, setRepliesWithUserNames] = useState([]);
   const token = localStorage.getItem("token");
   const decodedJwt = jwtDecode(token);
+  const [profilePicture, setProfilePicture] = useState([]);
   console.log(decodedJwt);
   const loggedUser =
     decodedJwt[
@@ -22,7 +23,7 @@ export const Replies = () => {
     ];
 
   useEffect(() => {
-    if (data) {
+    if (data ) {
       setRepliesWithUserNames(data.replies);
     }
   }, [data]);
@@ -41,6 +42,8 @@ export const Replies = () => {
         content,
       });
       setRepliesWithUserNames((prevReplies) => [...prevReplies, response.data]);
+      setEstado(false);
+    
     } catch (error) {
       console.error("Error fetching user data:", error);
     }
@@ -55,17 +58,51 @@ export const Replies = () => {
     );
   };
 
+  const [loadedImages, setLoadedImages] = useState(false);
+
+  useEffect(() => {
+    const fetchProfileImages = async () => {
+      try {
+        const userIds = repliesWithUserNames.map((reply) => reply.userId);
+        const responses = await Promise.all(
+          userIds.map((userId) =>
+            axios.get(`${API_URL}api/Auth/${userId}`)
+          )
+        );
+  
+        const updatedReplies = repliesWithUserNames.map((reply, index) => ({
+          ...reply,
+          image: responses[index].data.profilePictureUrl,
+        }));
+  
+        setRepliesWithUserNames(updatedReplies);
+        setLoadedImages(true);
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+  
+    if (!loadedImages) {
+      fetchProfileImages();
+    }
+  }, [repliesWithUserNames, loadedImages]); // Se ejecutará una vez al montar el componente
+  
+
+
   if (loading) {
     return <div>Loading...</div>;
   }
+
+ 
 
   return (
     <>
     <div className="bg-white rounded-3 py-5 px-5">
       <h3>Respuestas:</h3>
-      {repliesWithUserNames &&
+      {loadedImages && repliesWithUserNames &&
         repliesWithUserNames.map((reply) => (
           <div key={reply.id}>
+            <img src={reply.image} alt="" />
             <h3>{reply.userName}</h3>
             <p>{reply.content}</p>
             {loggedUser === reply.userName && (

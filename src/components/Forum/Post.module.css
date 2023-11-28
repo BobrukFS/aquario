@@ -1,6 +1,7 @@
 .contenedor{
     background-color: rgb(226, 233, 240);
-    height: calc(100vh - 75px);
+    min-height: calc(100vh - 75px);
+    height: 100%;
 }
 
 .titulo{

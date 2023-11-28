@@ -1,9 +1,9 @@
 import React from "react";
-import { FaImage, FaVideo, FaFile } from "react-icons/fa";
+
 import styles from "./aviso.module.css";
 import axios from "axios";
 import { useState } from "react";
-import Swal from "sweetalert2";
+
 
 export const Aviso = ({
   title,
