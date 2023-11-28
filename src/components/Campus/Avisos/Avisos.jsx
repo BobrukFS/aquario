@@ -22,20 +22,23 @@ export const Avisos = () => {
   const [openModal, setOpenModal] = useState(true);
   const [inputEdit, setInputEdit] = useState();
 
-  axios.get(`${API_URL}api/Avisos`).then((res) => {
-    setAvisos(res.data);
-  });
-
-
   useEffect(() => {
-   console.log("a")
-  }, [ openModal]);
+    axios
+      .get(`${API_URL}api/Avisos`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      })
+      .then((res) => {
+        setAvisos(res.data);
+      });
+  }, []);
 
   const handleChange = (e) => {
     setInputs({
       ...inputs,
       [e.target.name]: e.target.value,
-      [e.target.image]: e.target.value,
+      [e.target.image]: e.target,
       [e.target.title]: e.target.title,
     });
   };
@@ -47,27 +50,7 @@ export const Avisos = () => {
       return;
     }
     if (editClick) {
-      axios
-        .put(`http://localhost:3000/avisos/${avisoId}`, {
-          name: inputs.name,
-          image: inputs.image,
-          title: inputs.title,
-        })
-        .then(() => {
-          axios.get("http://localhost:3000/avisos").then((res) => {
-            setAvisos(res.data);
-            Swal.fire("Editado", "El aviso ha sido editado.", "success");
-          });
-        })
-        .catch((error) => {
-          console.error("Error al editar aviso:", error);
-          Swal.fire("Error", "Hubo un problema al editar el aviso", "error");
-        })
-        .finally(() => {
-          setEditClick(false);
-          setInputs({ name: "", image: "", title: "" });
-          setOpenModal(false);
-        });
+      Swal.fire("Editado", "El aviso ha sido editado.", "success");
     } else {
       /*const newAviso = {
         Title: inputs.title,
@@ -78,32 +61,24 @@ export const Avisos = () => {
 
       const formData = new FormData();
       formData.append("Content", inputs.name);
-      formData.append("Image", inputs.image);
+      formData.append("Image", inputs.undefined.files[0]);
       formData.append("Title", inputs.title);
-      console.log(inputs)
 
-      setInputs({
-        name: "",
-        image: "",
-        title: "",
-      });
-
-      axios.post(`${API_URL}api/Avisos`, formData, {headers: {
-        'Content-Type': 'multipart/form-data',
-      }}).then((res) => {
-        // Handle response if needed
-        /*axios.get(`${API_URL}api/Avisos`).then((res) => {
-          const data = res.data;
-          setAvisos(data);
-          console.log(res);
-        });*/
-      });
+      axios
+        .post(`${API_URL}api/Avisos`, formData, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        })
+        .then((res) => {
+          setAvisos((prevAvisos) => [...prevAvisos, res.data]);
+        });
     }
   };
 
   return (
     <div className={`${styles.ancho} px-sm-5 p-2 py-sm-3`}>
-      <div className="my-2">
+      <div className="my-2 d-flex d-flex flex-column align-items-center">
         <h2>Avisos</h2>
         <button
           className={`w-auto p-sm-2 p-1 px-2 border-0 rounded-2 d-flex align-items-center gap-2 bg-primary`}
@@ -215,7 +190,7 @@ export const Avisos = () => {
         </div>
       </div>
 
-      <div className="d-flex flex-column align-items-start w-100">
+      <div className="d-flex flex-column align-items-center w-100">
         {avisos &&
           avisos.map((e) => {
             return (
@@ -225,6 +200,8 @@ export const Avisos = () => {
                 title={e.title}
                 desc={e.content}
                 img={e.imageUrl}
+                userName={e.userName}
+                timeCreated={e.timeCreated}
                 setOpenModal={setOpenModal}
                 handleSubmit={handleSubmit}
                 setEditClick={setEditClick}
