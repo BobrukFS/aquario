@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import styles from "./Replies.module.css";
 import { useParams } from "react-router-dom";
@@ -16,14 +16,15 @@ export const Replies = () => {
   const token = localStorage.getItem("token");
   const decodedJwt = jwtDecode(token);
   const [profilePicture, setProfilePicture] = useState([]);
-  console.log(decodedJwt);
+  const prevUserIds = useRef([]);
+
   const loggedUser =
     decodedJwt[
       "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"
     ];
 
   useEffect(() => {
-    if (data ) {
+    if (data) {
       setRepliesWithUserNames(data.replies);
     }
   }, [data]);
@@ -37,13 +38,30 @@ export const Replies = () => {
     event.preventDefault();
     const { content } = form;
     try {
-      const response = await axios.post(`${API_URL}api/Reply`, {
+      // Make the axios.post call
+      const postResponse = await axios.post(`${API_URL}api/Reply`, {
         forumThreadId: forumId,
         content,
       });
-      setRepliesWithUserNames((prevReplies) => [...prevReplies, response.data]);
-      setEstado(false);
-    
+
+      // Update state with the new reply
+      setRepliesWithUserNames((prevReplies) => [
+        ...prevReplies,
+        postResponse.data,
+      ]);
+
+      // Make the axios.get call using the userId from the postResponse
+      const userId = postResponse.data.userId;
+      const getResponse = await axios.get(`${API_URL}api/Auth/${userId}`);
+
+      // Update state with the profile picture URL
+      setRepliesWithUserNames((prevReplies) =>
+        prevReplies.map((reply) =>
+          reply.userId === userId
+            ? { ...reply, image: getResponse.data.profilePictureUrl }
+            : reply
+        )
+      );
     } catch (error) {
       console.error("Error fetching user data:", error);
     }
@@ -58,75 +76,65 @@ export const Replies = () => {
     );
   };
 
-  const [loadedImages, setLoadedImages] = useState(false);
-
   useEffect(() => {
     const fetchProfileImages = async () => {
       try {
         const userIds = repliesWithUserNames.map((reply) => reply.userId);
+
         const responses = await Promise.all(
-          userIds.map((userId) =>
-            axios.get(`${API_URL}api/Auth/${userId}`)
-          )
+          userIds.map((userId) => axios.get(`${API_URL}api/Auth/${userId}`))
         );
-  
+
         const updatedReplies = repliesWithUserNames.map((reply, index) => ({
           ...reply,
           image: responses[index].data.profilePictureUrl,
         }));
-  
+
         setRepliesWithUserNames(updatedReplies);
-        setLoadedImages(true);
       } catch (error) {
         console.error("Error fetching user data:", error);
       }
     };
-  
-    if (!loadedImages) {
-      fetchProfileImages();
-    }
-  }, [repliesWithUserNames, loadedImages]); // Se ejecutará una vez al montar el componente
-  
 
+    fetchProfileImages();
+  }, []);
 
   if (loading) {
     return <div>Loading...</div>;
   }
 
- 
-
   return (
     <>
-    <div className="bg-white rounded-3 py-5 px-5">
-      <h3>Respuestas:</h3>
-      {loadedImages && repliesWithUserNames &&
-        repliesWithUserNames.map((reply) => (
-          <div key={reply.id}>
-            <img src={reply.image} alt="" />
-            <h3>{reply.userName}</h3>
-            <p>{reply.content}</p>
-            {loggedUser === reply.userName && (
-              <button
-                className="btn btn-danger"
-                onClick={() => handleDeleteReply(reply.id)}
-              >
-                Borrar Comentario
-              </button>
-            )}
-          </div>
-        ))}
-      <form onSubmit={handleReplySubmit}>
-        <textarea
-          onChange={handleChange}
-          className="mt-3"
-          name="content"
-          cols="35"
-          rows="5"
-        ></textarea>
-        <button type="submit" className={`${styles.button} mt-3`}>
-          Responder
-        </button>
-      </form>
+      <div className="bg-white rounded-3 py-5 px-5">
+        <h3>Respuestas:</h3>
+        {repliesWithUserNames &&
+          repliesWithUserNames.map((reply) => (
+            <div key={reply.id}>
+              <img src={reply.image} alt="" />
+              <h3>{reply.userName}</h3>
+              <p>{reply.content}</p>
+              {loggedUser === reply.userName && (
+                <button
+                  className="btn btn-danger"
+                  onClick={() => handleDeleteReply(reply.id)}
+                >
+                  Borrar Comentario
+                </button>
+              )}
+            </div>
+          ))}
+        <form onSubmit={handleReplySubmit}>
+          <textarea
+            onChange={handleChange}
+            className="mt-3"
+            name="content"
+            cols="35"
+            rows="5"
+          ></textarea>
+          <button type="submit" className={`${styles.button} mt-3`}>
+            Responder
+          </button>
+        </form>
       </div>
     </>
   );
