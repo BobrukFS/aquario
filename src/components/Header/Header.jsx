@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import styles from "./Header.module.css";
 import axios from "axios";
 import { API_URL } from "../../utilities/constants";
 import { jwtDecode } from "jwt-decode";
-import { useState } from "react";
 
 export const Header = () => {
   const token = localStorage.getItem("token");
@@ -34,8 +31,8 @@ export const Header = () => {
   };
 
   const abrirMenuDropdown = () => {
-    const img = document.getElementsByClassName("img_perfil");
-
+    const img = document.getElementsByClassName("_img_perfil_1m48c_11");
+    console.log(img);
     if (img[0].classList.contains("d-none")) {
       img[0].classList.replace("d-none", "d-flex");
     }

@@ -11,6 +11,10 @@
   width: 150px;
 }
 
+.profilePicture {
+  border-radius: 50%;
+}
+
 @media (min-width: 998px) {
   .ancho {
     width: 50%;

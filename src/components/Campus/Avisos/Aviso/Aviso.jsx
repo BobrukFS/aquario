@@ -1,11 +1,11 @@
-import React from "react";
-import { FaImage, FaVideo, FaFile } from "react-icons/fa";
+import React, { useEffect } from "react";
 import styles from "./aviso.module.css";
 import axios from "axios";
 import { useState } from "react";
 import Swal from "sweetalert2";
 import moment from "moment/moment";
 import { API_URL } from "../../../../utilities/constants";
+import { jwtDecode } from "jwt-decode";
 
 export const Aviso = ({
   title,
@@ -20,6 +20,7 @@ export const Aviso = ({
   userName,
   timeCreated,
 }) => {
+  const [profilePicture, setProfilePicture] = useState("");
   const openImage = () => {
     window.open(`${img}`, "_blank");
   };
@@ -33,6 +34,19 @@ export const Aviso = ({
     window.open(`${img}`, "_blank");
     // Aquí puedes usar un visor de PDF o un visor de documentos en lugar de abrir en una nueva ventana
   };
+
+  useEffect(() => {
+    const jwtToken = localStorage.getItem("token");
+    const decodedJwt = jwtDecode(jwtToken);
+    const loggedUserId =
+      decodedJwt[
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"
+      ];
+
+    axios
+      .get(`${API_URL}api/Auth/${loggedUserId}`)
+      .then((x) => setProfilePicture(x.data.profilePictureUrl));
+  }, []);
 
   const deleteAviso = () => {
     Swal.fire({
@@ -86,7 +100,12 @@ export const Aviso = ({
     >
       <div className="card-header bg-white d-flex justify-content-between border-0 align-items-start">
         <div className="d-flex align-items-center gap-2">
-          <img src="src/assets/ellipse.png" style={{ height: 50 }} alt="" />
+          <img
+            className={styles.profilePicture}
+            src={profilePicture}
+            style={{ height: 50 }}
+            alt=""
+          />
           <p className="text-secondary font-xs">{userName}</p>
         </div>
         <div className="d-flex flex-column gap-2">
