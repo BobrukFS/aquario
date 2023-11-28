@@ -15,7 +15,7 @@ export const Replies = () => {
   const [repliesWithUserNames, setRepliesWithUserNames] = useState([]);
   const token = localStorage.getItem("token");
   const decodedJwt = jwtDecode(token);
-  console.log(decodedJwt);
+
   const loggedUser =
     decodedJwt[
       "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"
