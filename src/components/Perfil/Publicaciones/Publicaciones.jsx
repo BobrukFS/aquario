@@ -9,7 +9,7 @@ export const Publicaciones = () => {
   return (
     <>
       <Header></Header>
-      <div className="p-3">
+      <div className="p-5">
         <h2>Mis publicaciones</h2>
         <div className="d-flex flex-wrap gap-5 ">
           {data &&

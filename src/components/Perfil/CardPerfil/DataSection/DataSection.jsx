@@ -27,7 +27,7 @@ export const DataSection = ({titulo, value = "*******", editable,}) => {
               <div > {(typeof value === "object") ? value.map((e, index)=>{
                 return <p key={index} className={`${style.dataValue}`}>{e}</p>
               })
-              : (inputIsVisible ? <input className={`${style.dataValue}`} defaultValue={valueInput} onChange={(e)=>setValueInput(e.target.value)}/> : <p className={`${style.dataValue}`}>{valueP}</p>)
+              : (inputIsVisible ? <input className={`${style.dataValue} px-2 rounded-2`} defaultValue={valueInput} onChange={(e)=>setValueInput(e.target.value)}/> : <p className={`${style.dataValue}`}>{valueP}</p>)
             }
               </div>
             </div>

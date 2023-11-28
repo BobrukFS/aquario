@@ -5,13 +5,13 @@ import { Perfil } from "./components/Perfil/Perfil";
 import { Participantes } from "./components/Participantes/Participantes";
 
 import { Publicaciones } from "./components/Perfil/Publicaciones/Publicaciones";
-import { Campus } from "./components/Campus/Campus";
+import Campus from "./components/Campus/Campus";
 import { Forum } from "./components/Forum/Forum";
 import { Post } from "./components/Forum/Post";
 import AuthProvider from "./provider/authProvider";
 const App = () => {
   return (
-    <div>
+   
       <AuthProvider>
         <Routes>
           <Route path="/" element={<Fondo />}>
@@ -23,7 +23,7 @@ const App = () => {
           <Route path="/perfil" element={<Perfil />}>
             {" "}
           </Route>
-          <Route path="/participantes" element={<Participantes />}></Route>
+       
 
           <Route
             path="/perfil/publicaciones"
@@ -33,7 +33,7 @@ const App = () => {
           <Route path="/foro/:forumId" element={<Post />}></Route>
         </Routes>
       </AuthProvider>
-    </div>
+
   );
 };
 

@@ -12,7 +12,7 @@ export const Perfil = () => {
   return (
     <>
       <Header></Header>
-      <div className={`container-fluid ${styles.perfil} d-flex justify-content-center  my-3`}>
+      <div className={`container-fluid ${styles.perfil} d-flex justify-content-center  py-5`}>
         <div className={`d-flex row  align-items-start justify-content-center p-0 gap-5 bg-white ${styles.container}`} >
           <div className="col-12 col-xxl-6 m-0  d-flex flex-wrap align-items-start justify-content-center gap-5  ">
             <div className={`container-fluid d-flex flex-column p-0 m-0 ${styles.sectionPerfil}`}>
@@ -45,7 +45,7 @@ export const Perfil = () => {
                     ></CardPublicaciones>
                   );
                 })}
-                <Link to="/perfil/publicaciones">Ver todas</Link>
+                <Link to="/perfil/publicaciones" className="font-xs text-primary border-bottom border-primary">Ver todas</Link>
             </div>
           </div>
         </div>
