@@ -1,69 +1,70 @@
 .container {
-    position: relative;
+  position: relative;
 }
 
 .button {
-    width: 250px;
-    border:none;
-    background-color: #e47f45;
-    color:White;
-    padding:1rem;
-    border-radius: 8px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  width: 250px;
+  border: none;
+  background-color: #e47f45;
+  color: White;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 ul {
-   list-style-type: none;
-   padding:0;
+  list-style-type: none;
+  padding: 0;
 }
 
 .liContainer {
-    display: flex;
-    gap:0.5rem;
-    margin-top:1rem;
-    font-weight: 300;
-    color:#363636;
-    align-items: center;
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  font-weight: 300;
+  color: #363636;
+  align-items: center;
 }
 
 .liContainer img {
-    width:35px;
+  width: 35px;
 }
 
 .recentButton {
-    background-color: #E6E6E6;
-    width:150px;
-    padding:1rem;
-    display: flex;
-    border-radius: 10px;
-    color:#363636;
+  background-color: #e6e6e6;
+  width: 150px;
+  padding: 1rem;
+  display: flex;
+  border-radius: 10px;
+  color: #363636;
 }
 
 .rect {
-    width:35px;
-    height:35px;
-    border-radius: 16px;
+  width: 35px;
+  height: 35px;
+  border-radius: 16px;
 }
 
 .blue {
-    background-color: #405FAF;
+  background-color: #405faf;
 }
 
 .darkGreen {
-    background-color: #004A30;
+  background-color: #004a30;
 }
 
 .orange {
-    background-color: #E85704;
+  background-color: #e85704;
 }
 
 .lightGreen {
-    background-color: #28772B;
+  background-color: #28772b;
 }
 
 .grey {
-    background-color: #3E3D3D;
+  background-color: #3e3d3d;
 }
 
-
-
+span {
+  cursor: pointer;
+}

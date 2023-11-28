@@ -4,6 +4,7 @@ import styles from "./Replies.module.css";
 import { useParams } from "react-router-dom";
 import useFetchForo from "../../Hooks/useFetchForo";
 import { API_URL } from "../../utilities/constants";
+import { jwtDecode } from "jwt-decode";
 
 export const Replies = () => {
   const [form, setForm] = useState({});
@@ -12,6 +13,13 @@ export const Replies = () => {
     `${API_URL}api/ForumThread/${forumId}`
   );
   const [repliesWithUserNames, setRepliesWithUserNames] = useState([]);
+  const token = localStorage.getItem("token");
+  const decodedJwt = jwtDecode(token);
+
+  const loggedUser =
+    decodedJwt[
+      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"
+    ];
 
   useEffect(() => {
     if (data) {
@@ -57,14 +65,16 @@ export const Replies = () => {
       {repliesWithUserNames &&
         repliesWithUserNames.map((reply) => (
           <div key={reply.id}>
-            {reply.userName}
+            <h3>{reply.userName}</h3>
             <p>{reply.content}</p>
-            <button
-              className="btn btn-danger"
-              onClick={() => handleDeleteReply(reply.id)}
-            >
-              Borrar Comentario
-            </button>
+            {loggedUser === reply.userName && (
+              <button
+                className="btn btn-danger"
+                onClick={() => handleDeleteReply(reply.id)}
+              >
+                Borrar Comentario
+              </button>
+            )}
           </div>
         ))}
       <form onSubmit={handleReplySubmit}>

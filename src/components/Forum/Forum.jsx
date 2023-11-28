@@ -3,7 +3,7 @@ import ventana from "../../assets/window.png";
 import speechBubble from "../../assets/speechbubble.png";
 import arrow from "../../assets/arrow.png";
 import { ForumPost } from "./ForumPost";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Modal } from "./Modal";
 import { useAuth } from "../../provider/authProvider";
 import { Navigate } from "react-router-dom";
@@ -11,10 +11,13 @@ import useFetchForo from "../../Hooks/useFetchForo";
 import { Navbar } from "../Navbar/Navbar";
 import Header from "../Header/Header";
 import { API_URL } from "../../utilities/constants";
+import axios from "axios";
 
 export const Forum = () => {
   const [showModal, setShowModal] = useState(false);
-  const { data, loading, error } = useFetchForo(`${API_URL}api/ForumThread`);
+  const { data, loading, error, setData } = useFetchForo(
+    `${API_URL}api/ForumThread`
+  );
 
   const { token } = useAuth();
 
@@ -32,6 +35,22 @@ export const Forum = () => {
     setShowModal(false);
   };
 
+  const handleFilterTag = async (tag) => {
+    await axios
+      .get(`${API_URL}api/ForumThread`)
+      .then((x) => setData(() => x.data));
+
+    setData((prevData) => {
+      return prevData.filter((x) => x.tag === tag);
+    });
+  };
+
+  const resetPosts = async () => {
+    await axios
+      .get(`${API_URL}api/ForumThread`)
+      .then((x) => setData(() => x.data));
+  };
+
   return (
     <>
       <Header />
@@ -42,7 +61,7 @@ export const Forum = () => {
               Nueva publicación
             </button>
             <ul className="mt-5">
-              <li className={styles.liContainer}>
+              <li onClick={resetPosts} className={styles.liContainer}>
                 <img src={speechBubble} alt="Speech Bubble" />
                 Todas las publicaciones
               </li>
@@ -52,23 +71,38 @@ export const Forum = () => {
               </li>
             </ul>
             <ul className="mt-5">
-              <li className={styles.liContainer}>
+              <li
+                onClick={() => handleFilterTag("Programación")}
+                className={styles.liContainer}
+              >
                 <div className={`${styles.rect} ${styles.blue}`}></div>
                 <span>Programación</span>
               </li>
-              <li className={styles.liContainer}>
+              <li
+                onClick={() => handleFilterTag("Ayuda")}
+                className={styles.liContainer}
+              >
                 <div className={`${styles.rect} ${styles.darkGreen}`}></div>
                 <span>Ayuda</span>
               </li>
-              <li className={styles.liContainer}>
+              <li
+                onClick={() => handleFilterTag("Material")}
+                className={styles.liContainer}
+              >
                 <div className={`${styles.rect} ${styles.orange}`}></div>
                 <span>Material</span>
               </li>
-              <li className={styles.liContainer}>
+              <li
+                onClick={() => handleFilterTag("Avisos")}
+                className={styles.liContainer}
+              >
                 <div className={`${styles.rect} ${styles.lightGreen}`}></div>
                 <span>Avisos</span>
               </li>
-              <li className={styles.liContainer}>
+              <li
+                onClick={() => handleFilterTag("Eventos")}
+                className={styles.liContainer}
+              >
                 <div className={`${styles.rect} ${styles.grey}`}></div>
                 <span>Eventos</span>
               </li>
@@ -87,6 +121,8 @@ export const Forum = () => {
                   id={x.threadId}
                   tag={x.tag}
                   comments={x.reply.length}
+                  userId={x.userId}
+                  timeCreated={x.timeCreated}
                 />
               ))}
           </div>
