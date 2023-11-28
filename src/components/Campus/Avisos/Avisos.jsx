@@ -4,7 +4,7 @@ import { useState } from "react";
 import useFetch from "../../../Hooks/useFetch";
 import axios from "axios";
 import { Aviso } from "./Aviso/Aviso";
-import {API_URL} from "../../../utilities/constants"
+import { API_URL } from "../../../utilities/constants";
 export const Avisos = () => {
   const [inputs, setInputs] = useState({
     name: "",
@@ -15,22 +15,21 @@ export const Avisos = () => {
   const [tableData, setTableData] = useState([]);
   const [editClick, setEditClick] = useState(false);
   const [editIndex, setEditIndex] = useState("");
-  const [avisoId, setAvisoId] = useState()
+  const [avisoId, setAvisoId] = useState();
 
-
-  const data = axios.get(`${API_URL}api/Avisos`).then((res)=>{
-    return res.data
-  })
-
-  console.log(data);
   const [avisos, setAvisos] = useState();
   const [submit, setSubmit] = useState(false);
   const [openModal, setOpenModal] = useState(true);
-  const [inputEdit, setInputEdit] = useState() 
+  const [inputEdit, setInputEdit] = useState();
+
+  axios.get(`${API_URL}api/Avisos`).then((res) => {
+    setAvisos(res.data);
+  });
+
 
   useEffect(() => {
-    setAvisos(data);
-  }, [data, openModal]);
+   console.log("a")
+  }, [ openModal]);
 
   const handleChange = (e) => {
     setInputs({
@@ -43,7 +42,7 @@ export const Avisos = () => {
 
   const handleSubmit = (e, id) => {
     e.preventDefault();
-  
+
     if (!inputs.name.trim()) {
       return;
     }
@@ -70,27 +69,37 @@ export const Avisos = () => {
           setOpenModal(false);
         });
     } else {
-      const newAviso = {
-        title: inputs.title,
-        name: inputs.name,
-        img: inputs.image,
-      };
+      /*const newAviso = {
+        Title: inputs.title,
+        Content: inputs.name,
+        Image: inputs.image,
+        
+      };*/
+
+      const formData = new FormData();
+      formData.append("Content", inputs.name);
+      formData.append("Image", inputs.image);
+      formData.append("Title", inputs.title);
+      console.log(inputs)
+
       setInputs({
         name: "",
         image: "",
         title: "",
       });
-  
-      axios.post("http://localhost:3000/avisos", newAviso).then((res) => {
+
+      axios.post(`${API_URL}api/Avisos`, formData, {headers: {
+        'Content-Type': 'multipart/form-data',
+      }}).then((res) => {
         // Handle response if needed
-        axios.get("http://localhost:3000/avisos").then((res) => {
+        /*axios.get(`${API_URL}api/Avisos`).then((res) => {
           const data = res.data;
           setAvisos(data);
-        });
+          console.log(res);
+        });*/
       });
     }
   };
-  
 
   return (
     <div className={`${styles.ancho} px-sm-5 p-2 py-sm-3`}>
@@ -118,14 +127,13 @@ export const Avisos = () => {
             <button
               type="button"
               className="btn-close align-self-end"
-              onClick={() =>  {
+              onClick={() => {
                 setInputs({
                   name: "",
                   image: "",
                   title: "",
                 });
               }}
-              
               data-bs-dismiss="modal"
               aria-label="Close"
             ></button>
@@ -177,17 +185,27 @@ export const Avisos = () => {
                 </div>
               </div>
               <div className="modal-footer align-self-end">
-              <button
+                <button
                   onClick={(e) => handleSubmit(e)}
                   className={`btn btn-primary ${
-                    (editClick && inputs.name === inputEdit.name && inputs.image === inputEdit.image && inputs.title === inputEdit.title) ||
-                    (!editClick && (!inputs.name.trim() || !inputs.title.trim()))
+                    (editClick &&
+                      inputs.name === inputEdit.name &&
+                      inputs.image === inputEdit.image &&
+                      inputs.title === inputEdit.title) ||
+                    (!editClick &&
+                      (!inputs.name.trim() || !inputs.title.trim()))
                       ? "bg-secondary border-secondary"
                       : ""
                   }`}
                   data-bs-dismiss="modal"
-                  disabled={(editClick && inputs.name === inputEdit.name && inputs.image === inputEdit.image && inputs.title === inputEdit.title) ||
-                    (!editClick && (!inputs.name.trim() || !inputs.title.trim()))}
+                  disabled={
+                    (editClick &&
+                      inputs.name === inputEdit.name &&
+                      inputs.image === inputEdit.image &&
+                      inputs.title === inputEdit.title) ||
+                    (!editClick &&
+                      (!inputs.name.trim() || !inputs.title.trim()))
+                  }
                 >
                   {editClick ? "Guardar" : "Enviar"}
                 </button>
@@ -205,22 +223,19 @@ export const Avisos = () => {
                 setAvisos={setAvisos}
                 id={e.id}
                 title={e.title}
-                desc={e.name}
-                img={e.img}
+                desc={e.content}
+                img={e.imageUrl}
                 setOpenModal={setOpenModal}
                 handleSubmit={handleSubmit}
                 setEditClick={setEditClick}
-                inputs = {inputs}
-                setInputs = {setInputs}
-                setAvisoId = {setAvisoId}
-                setInputEdit = {setInputEdit}
+                inputs={inputs}
+                setInputs={setInputs}
+                setAvisoId={setAvisoId}
+                setInputEdit={setInputEdit}
               ></Aviso>
             );
           })}
       </div>
-
-
-    
     </div>
   );
 };

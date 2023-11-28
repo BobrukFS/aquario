@@ -99,7 +99,7 @@ export const Participantes = () => {
           <div className="row d-flex justify-content-center w-100">
             <div className="col-4 p-0" style={{ width: 50 }}></div>
             <p className="col-4 p-0 text-secondary text-center">Nombre</p>
-            <p className="col-4 p-0 text-secondary text-center">Rol</p>
+            <p className="col-4 p-0 text-secondary">Rol</p>
           </div>
 
           <div className="d-flex w-100 flex-column align-items-center bg-white rounded-3 my-2">
