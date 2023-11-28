@@ -62,56 +62,53 @@ export const Forum = () => {
             </button>
             <ul className="mt-5">
               <li onClick={resetPosts} className={styles.liContainer}>
-                <img src={speechBubble} alt="Speech Bubble" />
-                Todas las publicaciones
+              <img src={ventana} alt="Window" />
+                Todos los temas
               </li>
-              <li className={styles.liContainer}>
-                <img src={ventana} alt="Window" />
-                Temas
-              </li>
+          
             </ul>
-            <ul className="mt-5">
+            <ul className="ms-1">
               <li
                 onClick={() => handleFilterTag("Programación")}
                 className={styles.liContainer}
               >
                 <div className={`${styles.rect} ${styles.blue}`}></div>
-                <span>Programación</span>
+                <span className="font-info ">Programación</span>
               </li>
               <li
                 onClick={() => handleFilterTag("Ayuda")}
                 className={styles.liContainer}
               >
                 <div className={`${styles.rect} ${styles.darkGreen}`}></div>
-                <span>Ayuda</span>
+                <span className="font-info ">Ayuda</span>
               </li>
               <li
                 onClick={() => handleFilterTag("Material")}
                 className={styles.liContainer}
               >
                 <div className={`${styles.rect} ${styles.orange}`}></div>
-                <span>Material</span>
+                <span className="font-info ">Material</span>
               </li>
               <li
                 onClick={() => handleFilterTag("Avisos")}
                 className={styles.liContainer}
               >
                 <div className={`${styles.rect} ${styles.lightGreen}`}></div>
-                <span>Avisos</span>
+                <span className="font-info ">Avisos</span>
               </li>
               <li
                 onClick={() => handleFilterTag("Eventos")}
                 className={styles.liContainer}
               >
                 <div className={`${styles.rect} ${styles.grey}`}></div>
-                <span>Eventos</span>
+                <span className="font-info ">Eventos</span>
               </li>
             </ul>
           </div>
           <div className="col-md-8">
-            <div className={styles.recentButton}>
+           {/* <div className={styles.recentButton}>
               Recientes <img src={arrow} alt="" />
-            </div>
+  </div>*/}
             {loading && loading}
             {data &&
               data.map((x, i) => (

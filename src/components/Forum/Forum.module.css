@@ -40,9 +40,9 @@ ul {
 }
 
 .rect {
-  width: 35px;
-  height: 35px;
-  border-radius: 16px;
+  width: 20px;
+  height: 20px;
+  border-radius: .2rem;
 }
 
 .blue {
@@ -50,7 +50,7 @@ ul {
 }
 
 .darkGreen {
-  background-color: #004a30;
+  background-color: rgb(86, 214, 169)
 }
 
 .orange {
@@ -58,7 +58,7 @@ ul {
 }
 
 .lightGreen {
-  background-color: #28772b;
+  background-color: #772849;
 }
 
 .grey {

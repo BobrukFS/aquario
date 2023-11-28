@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import React from "react";
+
+
 import { Link, NavLink } from "react-router-dom";
 import styles from "./Header.module.css";
-import axios from "axios";
+
 import { API_URL } from "../../utilities/constants";
 import { jwtDecode } from "jwt-decode";
+import axios from 'axios'
 
 export const Header = () => {
   const token = localStorage.getItem("token");
@@ -55,6 +56,12 @@ export const Header = () => {
       : props.isActive ? { borderBottom: "2px solid white", color: "white" } : {};
   };
 
+  useEffect(() => {
+    axios
+      .get(`${API_URL}api/Auth/${loggedUserId}`)
+      .then((x) => setProfilePicture(x.data.profilePictureUrl));
+  }, []);
+
   return (
     <>
       <div
@@ -96,12 +103,12 @@ export const Header = () => {
           <div className="d-flex flex-column flex-md-row align-items-center gap-2 position-relative">
             
             {innerWidth < 768 ? <Link to="/perfil"><img
-              src="src/assets/Ellipse.jpg"
+              src={profilePicture}
               style = {{height:55}}
               className="img_perfil rounded-circle"
               alt=""
             />     </Link>: <img
-              src="src/assets/Ellipse.jpg"
+              src={profilePicture}
               style = {{height:55}}
               className="img_perfil rounded-circle"
               alt=""

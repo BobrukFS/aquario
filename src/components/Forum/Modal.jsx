@@ -59,13 +59,15 @@ export const Modal = ({ show, onCloseButtonClick }) => {
   }
 
   return (
-    <div className={styles.modalContainer}>
-      <div ref={modalRef} className={styles.modalContainer}>
-        <form onSubmit={handleSubmit} action="">
-          <label htmlFor="">Título</label>
+    <div>
+      <div ref={modalRef} className={`${styles.modalContainer}`}>
+        <form className="p-4 d-flex flex-wrap flex-column justify-content-between" onSubmit={handleSubmit} action="">
+          <div>
+     
+          <label htmlFor="" className="fs-5 w-100">Título</label>
           <input
             onChange={handleChange}
-            className="mt-3"
+            className="w-100 m-0"
             type="text"
             name="title"
             id="title"
@@ -76,16 +78,21 @@ export const Modal = ({ show, onCloseButtonClick }) => {
           </label>
           <textarea
             onChange={handleChange}
-            className="mt-3"
+            className="w-100 p-2 border rounded-2 font-info"
+            style={{resize : "none", height: 150}}
             type="text"
             name="content"
             placeholder="Contenido.."
             value={form.content || ""}
           />
-          <label className="mt-3" htmlFor="">
+                 
+          <div className="d-flex flex-column align-items-center">
+         
+          <label className="mt-3 align-self-center mb-2" htmlFor="">
             Tags
           </label>
           <select
+            className="p-1 font-xs"
             value={selectedOption}
             onChange={(e) => setSelectedOption(e.target.value)}
             name="tags"
@@ -97,16 +104,20 @@ export const Modal = ({ show, onCloseButtonClick }) => {
             <option value="Avisos">Avisos</option>
             <option value="Eventos">Eventos</option>
           </select>
-          <div className={`${styles.formButton} mt-3`}>
-            <button className={styles.button} type="submit">
-              Publicar
-            </button>
+          </div>
+             
+          </div>
+          <div className={`${styles.formButton} d-flex gap-4`}>
+           
             <button
-              className={styles.buttonCancel}
+              className={`${styles.buttonCancel} bg-secondary text-white`}
               type="button"
               onClick={onCloseButtonClick}
             >
               Cancelar
+            </button>
+            <button className={styles.button} type="submit">
+              Publicar
             </button>
           </div>
         </form>

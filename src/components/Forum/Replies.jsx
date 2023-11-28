@@ -61,6 +61,7 @@ export const Replies = () => {
 
   return (
     <>
+    <div className="bg-white rounded-3 py-5 px-5">
       <h3>Respuestas:</h3>
       {repliesWithUserNames &&
         repliesWithUserNames.map((reply) => (
@@ -89,6 +90,7 @@ export const Replies = () => {
           Responder
         </button>
       </form>
+      </div>
     </>
   );
 };

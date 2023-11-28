@@ -23,13 +23,13 @@ export const ForumPost = ({
       case "Programación":
         return "#405faf";
       case "Ayuda":
-        return "#004a30";
+        return "rgb(86, 214, 169)";
 
       case "Material":
         return "#e85704";
 
       case "Avisos":
-        return "#28772b";
+        return "#772849";
 
       case "Eventos":
         return "#3e3d3d";
@@ -46,24 +46,32 @@ export const ForumPost = ({
       <div className={styles.newPost}>
         <div className={styles.newPostTitle}>
           <span>
-            <Link to={`/foro/${id}`}>{title}</Link>
+            <Link to={`/foro/${id}`}><p>{title}</p></Link>
           </span>
         </div>
-        <div className={styles.newPostUser}>
+        <div className={`styles.newPostUser`}>
+          <div className="d-flex align-items-center">
           <img className={styles.arrow} src={leftArrow} alt="" />
-          {userData && userData.firstName + " " + userData.lastName}{" "}
-          <span>{moment(timeCreated).fromNow()}</span>
+          <p className="font-xs text-secondary">{userData && userData.firstName + " " + userData.lastName}{" "}</p>
+          </div>
+      
+          <span className="font-info text-secondary">{moment(timeCreated).fromNow()}</span>
         </div>
       </div>
+      <div className="d-flex flex-column gap-1 align-items-center">
+    
       <div
-        className={styles.forumTag}
+        className={`${styles.forumTag}`}
         style={{ backgroundColor: tagColors(tag) }}
       >
-        {tag}
+        <p className="font-info text-white">{tag}</p>
       </div>
-      <div className={styles.comments}>
-        <img src={speechBubble} alt="" />
-        {comments}
+      <div className={`${styles.comments} d-flex align-items-center`}>
+        
+        <p className="text-secondary font-info fw-bold ">{comments}</p>
+        <img style={{width:15}} src={speechBubble} alt="" />
+      </div>
+          
       </div>
     </div>
   );
