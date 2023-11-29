@@ -29,6 +29,21 @@ export const Replies = () => {
     }
   }, [data]);
 
+  useEffect(() => {
+    const userIds = repliesWithUserNames.map((reply) => reply.userId);
+
+    userIds.map(
+      async (userId) => await axios.get(`${API_URL}api/Auth/${userId}`)
+    );
+
+    const updatedReplies = repliesWithUserNames.map((reply, index) => ({
+      ...reply,
+      image: responses[index].data.profilePictureUrl,
+    }));
+
+    setRepliesWithUserNames(updatedReplies);
+  }, []);
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setForm((prevState) => ({ ...prevState, [name]: value }));
@@ -75,29 +90,6 @@ export const Replies = () => {
       })
     );
   };
-
-  useEffect(() => {
-    const fetchProfileImages = async () => {
-      try {
-        const userIds = repliesWithUserNames.map((reply) => reply.userId);
-
-        const responses = await Promise.all(
-          userIds.map((userId) => axios.get(`${API_URL}api/Auth/${userId}`))
-        );
-
-        const updatedReplies = repliesWithUserNames.map((reply, index) => ({
-          ...reply,
-          image: responses[index].data.profilePictureUrl,
-        }));
-
-        setRepliesWithUserNames(updatedReplies);
-      } catch (error) {
-        console.error("Error fetching user data:", error);
-      }
-    };
-
-    fetchProfileImages();
-  }, []);
 
   if (loading) {
     return <div>Loading...</div>;
