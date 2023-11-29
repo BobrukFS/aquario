@@ -6,3 +6,8 @@
 .ancho {
     min-width: 100vw;
 }
+
+.calendario{
+    right: 0;
+    max-height: 100px;
+}

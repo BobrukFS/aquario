@@ -15,7 +15,7 @@ export const Replies = () => {
   const [repliesWithUserNames, setRepliesWithUserNames] = useState([]);
   const token = localStorage.getItem("token");
   const decodedJwt = jwtDecode(token);
-  const [profilePicture, setProfilePicture] = useState([]);
+  const [imagenPerfil, setImagenPerfil] = useState([]);
   const prevUserIds = useRef([]);
 
   const loggedUser =
@@ -23,11 +23,43 @@ export const Replies = () => {
       "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"
     ];
 
-  useEffect(() => {
-    if (data) {
-      setRepliesWithUserNames(data.replies);
+  const loggedUserId =
+    decodedJwt[
+      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"
+    ];
+
+  const fetchProfileImages = async () => {
+    try {
+      const userIds = repliesWithUserNames.map((reply) => reply.userId);
+
+      const responses = await Promise.all(
+        userIds.map((userId) => axios.get(`${API_URL}api/Auth/${userId}`))
+      );
+
+      const updatedReplies = repliesWithUserNames.map((reply, index) => ({
+        ...reply,
+        image: responses[index].data.profilePictureUrl,
+      }));
+
+      setRepliesWithUserNames(updatedReplies);
+    } catch (error) {
+      console.error("Error fetching user data:", error);
     }
-  }, [data]);
+  };
+
+  const [estado, setEstado] = useState(true);
+
+  useEffect(() => {
+    axios
+      .get(`${API_URL}api/Auth/${loggedUserId}`)
+      .then((x) => setImagenPerfil(x.data.profilePictureUrl));
+    if (data && repliesWithUserNames.length == 0) {
+      setRepliesWithUserNames(data.replies);
+      setEstado(false);
+    } else if (data) {
+      fetchProfileImages();
+    }
+  }, [data, estado]);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -76,43 +108,37 @@ export const Replies = () => {
     );
   };
 
-  useEffect(() => {
-    const fetchProfileImages = async () => {
-      try {
-        const userIds = repliesWithUserNames.map((reply) => reply.userId);
-
-        const responses = await Promise.all(
-          userIds.map((userId) => axios.get(`${API_URL}api/Auth/${userId}`))
-        );
-
-        const updatedReplies = repliesWithUserNames.map((reply, index) => ({
-          ...reply,
-          image: responses[index].data.profilePictureUrl,
-        }));
-
-        setRepliesWithUserNames(updatedReplies);
-      } catch (error) {
-        console.error("Error fetching user data:", error);
-      }
-    };
-
-    fetchProfileImages();
-  }, []);
-
   if (loading) {
     return <div>Loading...</div>;
   }
 
   return (
     <>
-      <div className="bg-white rounded-3 py-5 px-5">
-        <h3>Respuestas:</h3>
+      <div className="bg-white rounded-5 py-1 px-5 d-flex flex-column align-items-start">
         {repliesWithUserNames &&
           repliesWithUserNames.map((reply) => (
-            <div key={reply.id}>
-              <img src={reply.image} alt="" />
-              <h3>{reply.userName}</h3>
-              <p>{reply.content}</p>
+            <div className="my-5 w-100" key={reply.id}>
+              <div
+                className={`${styles.contenedor} d-flex align-items-center gap-2  p-2 px-4`}
+              >
+                <img
+                  className="rounded rounded-circle"
+                  style={{ width: 60, height: 60 }}
+                  src={reply.image}
+                  alt=""
+                />
+                <h3 className="font-xs text-secondary fw-light">
+                  {reply.userName}
+                </h3>
+              </div>
+              <div
+                className={`${styles.comentario} px-2 py-4 d-flex align-items-center`}
+              >
+                <div style={{ width: 80 }}></div>
+                <p className={`text-black font-info fw-light `}>
+                  {reply.content}
+                </p>
+              </div>
               {loggedUser === reply.userName && (
                 <button
                   className="btn btn-danger"
@@ -123,19 +149,23 @@ export const Replies = () => {
               )}
             </div>
           ))}
-        <form onSubmit={handleReplySubmit}>
+        <form      onSubmit={handleReplySubmit} className="d-flex w-100 p-0 ">
+        <div className={`${styles.responder} d-flex flex-column container-fluid align-self-center my-5 py-2 px-3  w-100 rounded-5`}>
+
           <textarea
             onChange={handleChange}
-            className="mt-3"
+            className="mt-3 w-100 rounded-3 font-xs p-2"
             name="content"
-            cols="35"
-            rows="5"
+              placeholder="Escribe tu respuesta aqui"
+            style={{ resize: "none", height: 100}}
           ></textarea>
-          <button type="submit" className={`${styles.button} mt-3`}>
+          <button type="submit" className={`${styles.button} align-self-end bg-white text-dark mt-3`}>
             Responder
           </button>
+          </div>
         </form>
-      </div>
+        </div>
+ 
     </>
   );
 };

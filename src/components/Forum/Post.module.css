@@ -1,9 +1,13 @@
 .contenedor{
     background-color: rgb(226, 233, 240);
     min-height: calc(100vh - 75px);
-    height: 100%;
+    min-height: 100%;
 }
 
 .titulo{
     width: fit-content;
+}
+
+.color{
+    color: #FD7202;
 }

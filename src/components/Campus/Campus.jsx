@@ -6,6 +6,7 @@ import {Avisos} from "./Avisos/Avisos";
 import {Participantes} from "../Participantes/Participantes";
 import styles from "./campus.module.css";
 import { useState } from "react";
+import Calendario from "../Calendario/Calendario";
 
 const Campus = () => {
  const [seccion, setSeccion] = useState("avisos");
@@ -14,7 +15,7 @@ const Campus = () => {
     <div className={`${styles.ancho}`}>
       <Header />
       <Navbar setSeccion={setSeccion}/>
-      {seccion == "participantes" ? <Participantes /> : seccion == "calendario" ? "calendario" : <Avisos></Avisos>}
+      {seccion == "participantes" ? <Participantes /> : seccion == "calendario" ? <Calendario/> : <Avisos></Avisos>}
     </div>
   );
 };

@@ -5,6 +5,7 @@ import useFetch from "../../../Hooks/useFetch";
 import axios from "axios";
 import { Aviso } from "./Aviso/Aviso";
 import { API_URL } from "../../../utilities/constants";
+import Calendario from "../../Calendario/Calendario";
 export const Avisos = () => {
   const [inputs, setInputs] = useState({
     name: "",
@@ -104,9 +105,9 @@ export const Avisos = () => {
   return (
     <div className={`${styles.ancho} px-sm-5 p-2 py-sm-3`}>
       <div className="my-2">
-        <h2>Avisos</h2>
+        <h2 className="fs-1 mb-2">Avisos</h2>
         <button
-          className={`w-auto p-sm-2 p-1 px-2 border-0 rounded-2 d-flex align-items-center gap-2 bg-primary`}
+          className={`w-auto p-sm-2 p-1 px-2 border-0 rounded-2 d-flex align-items-center gap-2`} style={{backgroundColor:"#1e2b37"}}
           data-bs-toggle="modal"
           data-bs-target="#exampleModal"
         >
@@ -214,8 +215,9 @@ export const Avisos = () => {
           </div>
         </div>
       </div>
-
-      <div className="d-flex flex-column align-items-start w-100">
+      <div className="row d-flex flex-column align-items-center">
+ 
+      <div className="d-flex flex-column align-items-center w-100 col-12 col-lg-6">
         {avisos &&
           avisos.map((e) => {
             return (
@@ -235,7 +237,15 @@ export const Avisos = () => {
               ></Aviso>
             );
           })}
+
+
       </div>
+          <div  className={`${styles.calendario} position-fixed col-lg-5 col-12`}>
+         
+          </div>
+  
+    </div>
+ 
     </div>
   );
 };

@@ -3,7 +3,7 @@ import React from "react";
 import styles from "./aviso.module.css";
 import axios from "axios";
 import { useState } from "react";
-
+import { faImage, FaVideo } from "fontawesome";
 
 export const Aviso = ({
   title,
@@ -108,8 +108,9 @@ export const Aviso = ({
         <h5 className="card-title text-start fw-bold">{title}</h5>
         <p className="card-text text-start fw-light">{desc}</p>
       </div>
+      
       <div className="d-flex justify-content-between align-items-center">
-        <div >
+      <div >
           {img && img.toLowerCase().match(/\.(jpg|jpeg|png|gif)$/) && (
             <button
               className="btn btn-link d-flex align-items-center gap-2 font-info"

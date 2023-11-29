@@ -28,13 +28,13 @@ export const Post = () => {
    <Header></Header>
    <div className={`p-5 ${styles.contenedor}`}>
     <div className={`${styles.titulo} bg-white px-3 py-4 my-3 border rounded-5`}>
-    <h2 >{data && data.title}</h2>
-    <p className="font-xs">  {data && data.userName}</p>
-    <p className="font-xs text-secondary">Publicacion creada el {data && moment(data.timeCreated).format("MMM Do YY")}</p>
+    <h2 className="fs-1 fw-bold">{data && data.title}</h2>
+    <p className={`${styles.color} fs-4 fw-light`}>  {data && data.userName}</p>
+    <p className="font-xs text-secondary fw-light">Publicacion creada el {data && moment(data.timeCreated).format("MMM Do YY")}</p>
     </div>
     
     <div className="bg-white p-4 border rounded-5 my-4">
-      <p className="">{data && data.content}</p>
+      <p className="fs-5">{data && data.content}</p>
     </div>
     <Replies />
    </div>

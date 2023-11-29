@@ -6,48 +6,52 @@ import styles from "./Participantes.module.css";
 import useFetch from "../../Hooks/useFetch";
 
 export const Participantes = () => {
-  const { data } = useFetch("http://localhost:3000/alumnos");
+  const { data } = useFetch('https://aquariobackend20231101183627.azurewebsites.net/api/Auth' );
 
   const [alumnos, setAlumnos] = useState(data);
   const [filtro, setFiltro] = useState("todos");
   const [busqueda, setBusqueda] = useState("");
 
-  useEffect(() => {
-    // Actualizar alumnos cuando cambie el filtro o la búsqueda
-    if (filtro === "todos") {
-      // Filtrar por búsqueda si hay texto
-      const alumnosFiltrados = busqueda
-        ? data.filter((alumno) => {
-            const palabrasBusqueda = busqueda.toLowerCase().split(" ");
-            return palabrasBusqueda.every(
-              (palabra) =>
-                alumno.nombre.toLowerCase().includes(palabra) ||
-                alumno.apellido.toLowerCase().includes(palabra)
-            );
-          })
-        : data;
-      setAlumnos(alumnosFiltrados);
-    } else {
-      // Filtrar alumnos según el tipo seleccionado (coordinador o alumno)
-      
-      const alumnosFiltrados = data.filter((alumno) => {
-        return (
-          alumno.rol === filtro &&
-          (busqueda
-            ? busqueda
-                .toLowerCase()
-                .split(" ")
-                .every(
-                  (palabra) =>
-                    alumno.nombre.toLowerCase().includes(palabra) ||
-                    alumno.apellido.toLowerCase().includes(palabra)
-                )
-            : true)
-        );
-      });
-      setAlumnos(alumnosFiltrados);
-    }
-  }, [data, filtro, busqueda]);
+console.log(data);
+
+useEffect(() => {
+  // Actualizar alumnos cuando cambie el filtro o la búsqueda
+  if (filtro === "todos") {
+    // Filtrar por búsqueda si hay texto
+    const alumnosFiltrados = busqueda
+      ? data.filter((alumno) => {
+          const palabrasBusqueda = busqueda.toLowerCase().split(" ");
+          return palabrasBusqueda.every(
+            (palabra) =>
+              alumno.firstName.toLowerCase().includes(palabra) ||
+              alumno.lastName.toLowerCase().includes(palabra)
+          );
+        })
+      : data;
+    setAlumnos(alumnosFiltrados);
+  } else {
+    // Filtrar alumnos según el tipo seleccionado (coordinador o alumno)
+    const esAlumno = filtro === "Alumno";
+
+    const alumnosFiltrados = data.filter((alumno) => {
+      return (
+        (alumno.isAlumno === esAlumno) &&
+        (busqueda
+          ? busqueda
+              .toLowerCase()
+              .split(" ")
+              .every(
+                (palabra) =>
+                  alumno.firstName.toLowerCase().includes(palabra) ||
+                  alumno.lastName.toLowerCase().includes(palabra)
+              )
+          : true)
+      );
+    });
+    setAlumnos(alumnosFiltrados);
+  }
+}, [data, filtro, busqueda]);
+
 
   const handleSelectChange = (e) => {
     setFiltro(e.target.value);
@@ -107,10 +111,10 @@ export const Participantes = () => {
               alumnos.map((e, index) => (
                 <Usuario
                   key={index}
-                  nombre={e.nombre}
-                  apellido={e.apellido}
-                  role={e.rol}
-                  imagen={e.imagen}
+                  nombre={e.firstName}
+                  apellido={e.lastName}
+                  role={e.isAlumno}
+                  imagen={e.profilePictureUrl}
                 />
               ))}
           </div>
