@@ -12,7 +12,9 @@ export const Participantes = () => {
   const [busqueda, setBusqueda] = useState("");
 
   useEffect(() => {
-    axios.get(`${API_URL}api/Auth`).then((x) => setAlumnos(x.data));
+    axios
+      .get(`${API_URL}api/Auth`)
+      .then((x) => setAlumnos(x.data.filter((x) => x.profilePictureUrl)));
   }, []);
 
   useEffect(() => {
@@ -24,8 +26,8 @@ export const Participantes = () => {
             const palabrasBusqueda = busqueda.toLowerCase().split(" ");
             return palabrasBusqueda.every(
               (palabra) =>
-                alumno.nombre.toLowerCase().includes(palabra) ||
-                alumno.apellido.toLowerCase().includes(palabra)
+                alumno.firstName.toLowerCase().includes(palabra) ||
+                alumno.lastName.toLowerCase().includes(palabra)
             );
           })
         : alumnos;
@@ -34,19 +36,19 @@ export const Participantes = () => {
       // Filtrar alumnos según el tipo seleccionado (coordinador o alumno)
 
       const alumnosFiltrados = alumnos.filter((alumno) => {
-        return (
-          alumno.rol === filtro &&
-          (busqueda
-            ? busqueda
-                .toLowerCase()
-                .split(" ")
-                .every(
-                  (palabra) =>
-                    alumno.nombre.toLowerCase().includes(palabra) ||
-                    alumno.apellido.toLowerCase().includes(palabra)
-                )
-            : true)
-        );
+        return alumno.isAlumno
+          ? "Alumnos"
+          : "Coordinadoras" === filtro &&
+              (busqueda
+                ? busqueda
+                    .toLowerCase()
+                    .split(" ")
+                    .every(
+                      (palabra) =>
+                        alumno.firstName.toLowerCase().includes(palabra) ||
+                        alumno.lastName.toLowerCase().includes(palabra)
+                    )
+                : true);
       });
       setAlumnos(alumnosFiltrados);
     }
@@ -69,7 +71,9 @@ export const Participantes = () => {
           <div className="d-flex align-items-center justify-content-between">
             <div>
               <h2 className="m-0">Participantes</h2>
-              <p className="text-secondary font-info">Total:</p>
+              <p className="text-secondary font-info">
+                Total: {alumnos && alumnos.length}
+              </p>
             </div>
             <select
               name=""
@@ -102,7 +106,7 @@ export const Participantes = () => {
           <div className="row d-flex justify-content-center w-100">
             <div className="col-4 p-0" style={{ width: 50 }}></div>
             <p className="col-4 p-0 text-secondary text-center">Nombre</p>
-            <p className="col-4 p-0 text-secondary">Rol</p>
+            <p className="col-4 p-0 text-secondary text-center">Rol</p>
           </div>
 
           <div className="d-flex w-100 flex-column align-items-center bg-white rounded-3 my-2">
@@ -114,6 +118,7 @@ export const Participantes = () => {
                   apellido={e.lastName}
                   role={e.isAlumno ? "Alumno" : "Coordinador/a"}
                   imagen={e.profilePictureUrl}
+                  linkedinUrl={e.linkedinUrl}
                 />
               ))}
           </div>

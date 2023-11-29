@@ -61,54 +61,56 @@ export const Modal = ({ show, onCloseButtonClick }) => {
   return (
     <div>
       <div ref={modalRef} className={`${styles.modalContainer}`}>
-        <form className="p-4 d-flex flex-wrap flex-column justify-content-between" onSubmit={handleSubmit} action="">
+        <form
+          className={`${styles.formModal} p-4 d-flex flex-wrap flex-column justify-content-between`}
+          onSubmit={handleSubmit}
+          action=""
+        >
           <div>
-     
-          <label htmlFor="" className="fs-5 w-100">Título</label>
-          <input
-            onChange={handleChange}
-            className="w-100 m-0"
-            type="text"
-            name="title"
-            id="title"
-            value={form.title || ""}
-          />
-          <label className="mt-3" htmlFor="">
-            Contenido
-          </label>
-          <textarea
-            onChange={handleChange}
-            className="w-100 p-2 border rounded-2 font-info"
-            style={{resize : "none", height: 150}}
-            type="text"
-            name="content"
-            placeholder="Contenido.."
-            value={form.content || ""}
-          />
-                 
-          <div className="d-flex flex-column align-items-center">
-         
-          <label className="mt-3 align-self-center mb-2" htmlFor="">
-            Tags
-          </label>
-          <select
-            className="p-1 font-xs"
-            value={selectedOption}
-            onChange={(e) => setSelectedOption(e.target.value)}
-            name="tags"
-            id="tags"
-          >
-            <option value="Programación">Programación</option>
-            <option value="Ayuda">Ayuda</option>
-            <option value="Material">Material</option>
-            <option value="Avisos">Avisos</option>
-            <option value="Eventos">Eventos</option>
-          </select>
-          </div>
-             
+            <label htmlFor="" className="fs-5 w-100">
+              Título
+            </label>
+            <input
+              onChange={handleChange}
+              className="w-100 m-0"
+              type="text"
+              name="title"
+              id="title"
+              value={form.title || ""}
+            />
+            <label className="mt-3" htmlFor="">
+              Contenido
+            </label>
+            <textarea
+              onChange={handleChange}
+              className="w-100 p-2 border rounded-2 font-info"
+              style={{ resize: "none", height: 150 }}
+              type="text"
+              name="content"
+              placeholder="Contenido.."
+              value={form.content || ""}
+            />
+
+            <div className="d-flex flex-column align-items-center">
+              <label className="mt-3 align-self-center mb-2" htmlFor="">
+                Tags
+              </label>
+              <select
+                className="p-1 font-xs"
+                value={selectedOption}
+                onChange={(e) => setSelectedOption(e.target.value)}
+                name="tags"
+                id="tags"
+              >
+                <option value="Programación">Programación</option>
+                <option value="Ayuda">Ayuda</option>
+                <option value="Material">Material</option>
+                <option value="Avisos">Avisos</option>
+                <option value="Eventos">Eventos</option>
+              </select>
+            </div>
           </div>
           <div className={`${styles.formButton} d-flex gap-4`}>
-           
             <button
               className={`${styles.buttonCancel} bg-secondary text-white`}
               type="button"

@@ -7,9 +7,13 @@ const useFetch = (url) => {
 
   useEffect(() => {
     setLoading(true);
-    fetch(url)
+    fetch(url, {
+      headers: {
+        Authorization: `Bearer: ${localStorage.getItem("token")}`,
+      },
+    })
       .then((response) => response.json())
-      .then((data) => setData(data))
+      .then((data) => setData(data.data))
       .catch((error) => {
         setError(error);
       })

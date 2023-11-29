@@ -1,39 +1,39 @@
-.perfilCard{
-    background: rgb(253,114,2);
-    background: linear-gradient(0deg, rgba(253,114,2,0.8) 0%, rgba(15, 21, 90, 0.8) 100%);
-    position: relative;
-   
-    
-  
+.perfilCard {
+  background: rgb(253, 114, 2);
+  background: linear-gradient(
+    0deg,
+    rgba(253, 114, 2, 0.8) 0%,
+    rgba(15, 21, 90, 0.8) 100%
+  );
+  position: relative;
 }
 
-.dataContainer{
-    background: rgba(63, 63, 63, 0.75);
+.dataContainer {
+  background: rgba(63, 63, 63, 0.75);
 }
 
-.imgCard{
-   position: relative;
-   left: 0rem;
-   top: -1.5rem;
-   border: 2px solid rgb(5, 9, 51);
+.imgCard {
+  position: relative;
+  left: 0rem;
+  top: -1.5rem;
+  border: 2px solid rgb(5, 9, 51);
+  width: 85px;
 }
 
-
-.dataTematica{
-    font-size: .8rem;
-    color: rgb(206, 204, 202);
-    font-weight: 700;
-  
+.dataTematica {
+  font-size: 0.8rem;
+  color: rgb(206, 204, 202);
+  font-weight: 700;
 }
 
-@media (min-width: 1440px) { 
-    .imgCard{
-        top: 0;
-        left: 0;
-        width: 80px;
-    }
+@media (min-width: 1440px) {
+  .imgCard {
+    top: 0;
+    left: 0;
+    width: 80px;
+  }
 
-    .perfilCard{
-        max-height: 100%;
-    }
+  .perfilCard {
+    max-height: 100%;
+  }
 }

@@ -111,7 +111,7 @@ export const Aviso = ({
         <div className="d-flex flex-column gap-2">
           <div className="d-flex gap-3 justify-content-end">
             <button className="border-0 bg-white" onClick={deleteAviso}>
-              <i class="fa-solid fa-trash color-p"></i>
+              <i className="fa-solid fa-trash color-p"></i>
             </button>
           </div>
         </div>

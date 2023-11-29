@@ -6,6 +6,7 @@ import styles from "./Header.module.css";
 import { API_URL } from "../../utilities/constants";
 import { jwtDecode } from "jwt-decode";
 import axios from "axios";
+import logoPescar from "../../assets/LogoFundacionPescar.png";
 
 export const Header = () => {
   const token = localStorage.getItem("token");
@@ -47,7 +48,6 @@ export const Header = () => {
   };
 
   const cambiarColor = (props) => {
-    console.log(props);
     return props.isActive && window.innerWidth >= 768
       ? { borderBottom: "2px solid orange", color: "black" }
       : props.isActive
@@ -67,7 +67,7 @@ export const Header = () => {
         className={` px-4  ${styles.header} bg-white container-fluid  d-flex w-100 align-items-center justify-content-between p-2   top-0 start-0 px-lg-5`}
       >
         <Link to="/" className="link-logo">
-          <img width={200} src="src/assets/LogoFundacionPescar.png" alt="" />
+          <img width={200} src={logoPescar} alt="" />
         </Link>
         <div className={`${styles.box} z-2 d-md-none`}>
           <div
@@ -105,7 +105,7 @@ export const Header = () => {
                 <img
                   src={profilePicture}
                   style={{ height: 55 }}
-                  className="img_perfil rounded-circle"
+                  className={styles.img_perfil}
                   alt=""
                 />{" "}
               </Link>
@@ -113,7 +113,7 @@ export const Header = () => {
               <img
                 src={profilePicture}
                 style={{ height: 55 }}
-                className="img_perfil rounded-circle"
+                className={styles.img_perfil}
                 alt=""
                 onClick={abrirMenuDropdown}
               />

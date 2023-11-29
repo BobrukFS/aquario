@@ -4,7 +4,11 @@
 }
 
 .img_perfil {
-  width: 100px;
+  width: 75px;
+  height: 75px;
+  object-fit: cover;
+  margin-right: 0.8rem;
+  border-radius: 50%;
 }
 
 .header .header__nav {
@@ -98,7 +102,6 @@
   }
 }
 
-
 @keyframes bottom {
   0% {
     bottom: 0;
@@ -159,8 +162,7 @@
   }
 }
 
-
-.menu{
+.menu {
   position: absolute;
   top: 100%;
   right: 50%;
