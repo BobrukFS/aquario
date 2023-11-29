@@ -3,8 +3,8 @@ import React from "react";
 import styles from "./aviso.module.css";
 import axios from "axios";
 import { useState } from "react";
-import { faImage, FaVideo } from "fontawesome";
-
+import { FaImage, FaVideo, FaFile } from "react-icons/fa";
+ 
 export const Aviso = ({
   title,
   desc,
