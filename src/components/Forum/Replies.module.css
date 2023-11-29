@@ -1,9 +1,27 @@
 .button {
-    width: 125px;
-    border:none;
-    background-color: #e47f45;
-    color:White;
-    padding: 0.3rem 0 0.3rem 0;
-    border-radius: 8px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  width: 125px;
+  border: none;
+  background-color: #e47f45;
+  color: White;
+  padding: 0.3rem 0 0.3rem 0;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.contenedor {
+  background-color: rgb(212, 219, 219);
+  border-radius: 2rem 2rem 0rem 0rem;
+  border: 2px solid rgb(173, 182, 182);
+  border-bottom: 0;
+}
+
+.comentario {
+  border: 2px solid #e47f45;
+  border-top: 0;
+  border-radius: 0rem 0rem 2rem 2rem;
+}
+
+.responder {
+  box-shadow: 5px 5px 2px 2px rgba(0, 0, 0, 0.24);
+  background-color: #e47f45;
 }

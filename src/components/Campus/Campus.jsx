@@ -6,6 +6,7 @@ import { Avisos } from "./Avisos/Avisos";
 import { Participantes } from "../Participantes/Participantes";
 import styles from "./campus.module.css";
 import { useState } from "react";
+import Calendario from "../Calendario/Calendario";
 
 const Campus = () => {
   const [seccion, setSeccion] = useState("avisos");
@@ -17,7 +18,7 @@ const Campus = () => {
       {seccion == "participantes" ? (
         <Participantes />
       ) : seccion == "calendario" ? (
-        "calendario"
+        <Calendario />
       ) : (
         <Avisos></Avisos>
       )}
