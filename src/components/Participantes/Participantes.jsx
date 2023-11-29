@@ -3,21 +3,24 @@ import { Header } from "../Header/Header";
 import { Navbar } from "../Navbar/Navbar";
 import { Usuario } from "./Usuario/Usuario";
 import styles from "./Participantes.module.css";
-import useFetch from "../../Hooks/useFetch";
+import axios from "axios";
+import { API_URL } from "../../utilities/constants";
 
 export const Participantes = () => {
-  const { data } = useFetch("http://localhost:3000/alumnos");
-
-  const [alumnos, setAlumnos] = useState(data);
+  const [alumnos, setAlumnos] = useState([]);
   const [filtro, setFiltro] = useState("todos");
   const [busqueda, setBusqueda] = useState("");
+
+  useEffect(() => {
+    axios.get(`${API_URL}api/Auth`).then((x) => setAlumnos(x.data));
+  }, []);
 
   useEffect(() => {
     // Actualizar alumnos cuando cambie el filtro o la búsqueda
     if (filtro === "todos") {
       // Filtrar por búsqueda si hay texto
       const alumnosFiltrados = busqueda
-        ? data.filter((alumno) => {
+        ? alumnos.filter((alumno) => {
             const palabrasBusqueda = busqueda.toLowerCase().split(" ");
             return palabrasBusqueda.every(
               (palabra) =>
@@ -25,12 +28,12 @@ export const Participantes = () => {
                 alumno.apellido.toLowerCase().includes(palabra)
             );
           })
-        : data;
+        : alumnos;
       setAlumnos(alumnosFiltrados);
     } else {
       // Filtrar alumnos según el tipo seleccionado (coordinador o alumno)
-      
-      const alumnosFiltrados = data.filter((alumno) => {
+
+      const alumnosFiltrados = alumnos.filter((alumno) => {
         return (
           alumno.rol === filtro &&
           (busqueda
@@ -47,7 +50,7 @@ export const Participantes = () => {
       });
       setAlumnos(alumnosFiltrados);
     }
-  }, [data, filtro, busqueda]);
+  }, [filtro, busqueda]);
 
   const handleSelectChange = (e) => {
     setFiltro(e.target.value);
@@ -59,41 +62,41 @@ export const Participantes = () => {
 
   return (
     <div className={`${styles.fondo2} d-flex flex-column align-items-center`}>
-    
-      <section className={`p-3 p-sm-5 ${styles.fondo} d-flex flex-column justify-content-center`}>
+      <section
+        className={`p-3 p-sm-5 ${styles.fondo} d-flex flex-column justify-content-center`}
+      >
         <div className="d-flex flex-column align-items-between">
-        <div className="d-flex align-items-center justify-content-between">
-          <div>
-            <h2 className="m-0">Participantes</h2>
-            <p className="text-secondary font-info">Total: {data && data.length}</p>
+          <div className="d-flex align-items-center justify-content-between">
+            <div>
+              <h2 className="m-0">Participantes</h2>
+              <p className="text-secondary font-info">Total:</p>
+            </div>
+            <select
+              name=""
+              id=""
+              className={`${styles.select}  text-white text-center border-0 p-1 rounded-2 font-info`}
+              onChange={handleSelectChange}
+            >
+              <option value="todos">Todos</option>
+              <option value="Coordinadora">Coordinadoras</option>
+              <option value="Alumno">Alumnos</option>
+            </select>
           </div>
-          <select
-            name=""
-            id=""
-            className={`${styles.select}  text-white text-center border-0 p-1 rounded-2 font-info`}
-            onChange={handleSelectChange}
+          <div
+            className={`${styles.input} align-self-sm-end bg-white d-flex my-3 mb-4`}
           >
-            <option value="todos">Todos</option>
-            <option value="Coordinadora">Coordinadoras</option>
-            <option value="Alumno">Alumnos</option>
-          </select>
+            <input
+              type="text"
+              className={`${styles.search} py-1 border-0 font-xs w-100 px-2 fw-light`}
+              placeholder="Busca a alguien en especifico aqui"
+              onChange={handleInputChange}
+              value={busqueda}
+            />
+            <button className={`${styles.button} px-2 py-1`}>
+              <i className="text-white fa-solid fa-magnifying-glass"></i>
+            </button>
+          </div>
         </div>
-        <div className={`${styles.input} align-self-sm-end bg-white d-flex my-3 mb-4`}>
-          <input
-            type="text"
-            className={`${styles.search} py-1 border-0 font-xs w-100 px-2 fw-light`}
-            placeholder="Busca a alguien en especifico aqui"
-            onChange={handleInputChange}
-            value={busqueda}
-          />
-          <button className={`${styles.button} px-2 py-1`}>
-            <i className="text-white fa-solid fa-magnifying-glass"></i>
-          </button>
-        </div>
-        </div>
-       
-
-       
 
         <div className="p-1 d-flex flex-column align-items-center container-fluid">
           <div className="row d-flex justify-content-center w-100">
@@ -107,10 +110,10 @@ export const Participantes = () => {
               alumnos.map((e, index) => (
                 <Usuario
                   key={index}
-                  nombre={e.nombre}
-                  apellido={e.apellido}
-                  role={e.rol}
-                  imagen={e.imagen}
+                  nombre={e.firstName}
+                  apellido={e.lastName}
+                  role={e.isAlumno ? "Alumno" : "Coordinador/a"}
+                  imagen={e.profilePictureUrl}
                 />
               ))}
           </div>

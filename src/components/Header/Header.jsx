@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 
-
 import { Link, NavLink } from "react-router-dom";
 import styles from "./Header.module.css";
 
 import { API_URL } from "../../utilities/constants";
 import { jwtDecode } from "jwt-decode";
-import axios from 'axios'
+import axios from "axios";
 
 export const Header = () => {
   const token = localStorage.getItem("token");
@@ -18,42 +17,42 @@ export const Header = () => {
     ];
   const [profilePicture, setProfilePicture] = useState("");
 
-  const htmlElement = document.querySelector('html');
+  const htmlElement = document.querySelector("html");
   const abrirMenu = () => {
     const btn = document.getElementsByClassName("btn1");
     const nav = document.getElementsByClassName("header__nav");
     if (btn[0].classList.contains(`${styles.not_active}`)) {
       btn[0].classList.replace(`${styles.not_active}`, `${styles.active}`);
       nav[0].classList.toggle(`${styles.desplegado}`);
-      htmlElement.style.overflow = 'hidden';
+      htmlElement.style.overflow = "hidden";
     } else if (btn[0].classList.contains(`${styles.active}`)) {
       btn[0].classList.replace(`${styles.active}`, `${styles.not_active}`);
       nav[0].classList.toggle(`${styles.desplegado}`);
-      htmlElement.style.overflow = 'auto';
+      htmlElement.style.overflow = "auto";
     }
   };
 
   const [menuOpen, setMenuOpen] = useState(false);
   const abrirMenuDropdown = () => {
     const img = document.getElementsByClassName("img_perfil");
-    if(menuOpen){
+    if (menuOpen) {
       setMenuOpen(false);
-    }else{
+    } else {
       setMenuOpen(true);
     }
- 
-    
   };
 
-  const logout = () =>{
-    console.log("chau")
-  }
+  const logout = () => {
+    console.log("chau");
+  };
 
   const cambiarColor = (props) => {
     console.log(props);
     return props.isActive && window.innerWidth >= 768
       ? { borderBottom: "2px solid orange", color: "black" }
-      : props.isActive ? { borderBottom: "2px solid white", color: "white" } : {};
+      : props.isActive
+      ? { borderBottom: "2px solid white", color: "white" }
+      : {};
   };
 
   useEffect(() => {
@@ -101,35 +100,47 @@ export const Header = () => {
             </NavLink>
           </div>
           <div className="d-flex flex-column flex-md-row align-items-center gap-2 position-relative">
-            
-            {innerWidth < 768 ? <Link to="/perfil"><img
-              src={profilePicture}
-              style = {{height:55}}
-              className="img_perfil rounded-circle"
-              alt=""
-            />     </Link>: <img
-              src={profilePicture}
-              style = {{height:55}}
-              className="img_perfil rounded-circle"
-              alt=""
-              onClick={abrirMenuDropdown}    
-            />}
-            {menuOpen && (window.innerWidth >= 768) && (
-              <ul className={`${styles.menu} menu m-0 p-2 rounded-3 flex-column align-items-center`}>
-                <Link to="/perfil" className="text-white text-center"><p>Ver mi perfil</p></Link>
-    
-                <Link to="/" onClick={logout} className="text-center text-white"><p>Cerrar sesion</p></Link>
+            {innerWidth < 768 ? (
+              <Link to="/perfil">
+                <img
+                  src={profilePicture}
+                  style={{ height: 55 }}
+                  className="img_perfil rounded-circle"
+                  alt=""
+                />{" "}
+              </Link>
+            ) : (
+              <img
+                src={profilePicture}
+                style={{ height: 55 }}
+                className="img_perfil rounded-circle"
+                alt=""
+                onClick={abrirMenuDropdown}
+              />
+            )}
+            {menuOpen && window.innerWidth >= 768 && (
+              <ul
+                className={`${styles.menu} menu m-0 p-2 rounded-3 flex-column align-items-center`}
+              >
+                <Link to="/perfil" className="text-white text-center">
+                  <p>Ver mi perfil</p>
+                </Link>
+
+                <Link
+                  to="/"
+                  onClick={logout}
+                  className="text-center text-white"
+                >
+                  <p>Cerrar sesion</p>
+                </Link>
               </ul>
             )}
 
-            {
-              window.innerWidth < 768 && (
-              
-  
-                <Link to="/" onClick={logout} className="text-center text-white"><p>Cerrar sesion</p></Link>
-
-              )
-            }
+            {window.innerWidth < 768 && (
+              <Link to="/" onClick={logout} className="text-center text-white">
+                <p>Cerrar sesion</p>
+              </Link>
+            )}
           </div>
         </nav>
       </div>

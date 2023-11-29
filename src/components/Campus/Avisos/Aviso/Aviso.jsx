@@ -1,9 +1,11 @@
-import React from "react";
-
+import React, { useEffect } from "react";
 import styles from "./aviso.module.css";
 import axios from "axios";
 import { useState } from "react";
-
+import Swal from "sweetalert2";
+import moment from "moment/moment";
+import { API_URL } from "../../../../utilities/constants";
+import { jwtDecode } from "jwt-decode";
 
 export const Aviso = ({
   title,
@@ -15,7 +17,10 @@ export const Aviso = ({
   setInputs,
   setAvisoId,
   setInputEdit,
+  userName,
+  timeCreated,
 }) => {
+  const [profilePicture, setProfilePicture] = useState("");
   const openImage = () => {
     window.open(`${img}`, "_blank");
   };
@@ -30,6 +35,19 @@ export const Aviso = ({
     // Aquí puedes usar un visor de PDF o un visor de documentos en lugar de abrir en una nueva ventana
   };
 
+  useEffect(() => {
+    const jwtToken = localStorage.getItem("token");
+    const decodedJwt = jwtDecode(jwtToken);
+    const loggedUserId =
+      decodedJwt[
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"
+      ];
+
+    axios
+      .get(`${API_URL}api/Auth/${loggedUserId}`)
+      .then((x) => setProfilePicture(x.data.profilePictureUrl));
+  }, []);
+
   const deleteAviso = () => {
     Swal.fire({
       title: "¿Estás seguro?",
@@ -43,12 +61,9 @@ export const Aviso = ({
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:3000/avisos/${id}`)
-          .then(() => {
-            axios.get("http://localhost:3000/avisos").then((res) => {
-              setAvisos(res.data);
-              Swal.fire("Eliminado", "El aviso ha sido eliminado.", "success");
-            });
+          .delete(`${API_URL}api/Avisos/${id}`)
+          .then((x) => {
+            Swal.fire("Eliminado", "El aviso ha sido eliminado.", "success");
           })
           .catch((error) => {
             console.error("Error al eliminar aviso:", error);
@@ -85,57 +100,33 @@ export const Aviso = ({
     >
       <div className="card-header bg-white d-flex justify-content-between border-0 align-items-start">
         <div className="d-flex align-items-center gap-2">
-          <img src="src/assets/ellipse.png" style={{ height: 50 }} alt="" />
-          <p className="text-secondary font-xs">Manolo</p>
+          <img
+            className={styles.profilePicture}
+            src={profilePicture}
+            style={{ height: 50 }}
+            alt=""
+          />
+          <p className="text-secondary font-xs">{userName}</p>
         </div>
         <div className="d-flex flex-column gap-2">
           <div className="d-flex gap-3 justify-content-end">
-            <button
-              className="border-0 bg-white"
-              data-bs-toggle="modal"
-              data-bs-target="#exampleModal"
-              onClick={handleEdit}
-            >
-              <i className="fa-solid fa-pen color-p"></i>
-            </button>
             <button className="border-0 bg-white" onClick={deleteAviso}>
               <i class="fa-solid fa-trash color-p"></i>
             </button>
           </div>
         </div>
       </div>
-      <div className="card-body d-flex flex-column  align-items-start">
-        <h5 className="card-title text-start fw-bold">{title}</h5>
-        <p className="card-text text-start fw-light">{desc}</p>
+      <div className="card-body d-flex flex-row  align-items-start">
+        <img src={img} alt="" className={styles.avisoImage} />
+        <div className="d-flex flex-column ms-3">
+          <h5 className="card-title text-start fw-bold">{title}</h5>
+          <p className="card-text text-start fw-light">{desc}</p>
+        </div>
       </div>
       <div className="d-flex justify-content-between align-items-center">
-        <div >
-          {img && img.toLowerCase().match(/\.(jpg|jpeg|png|gif)$/) && (
-            <button
-              className="btn btn-link d-flex align-items-center gap-2 font-info"
-              onClick={openImage}
-            >
-              <FaImage /> Imagen
-            </button>
-          )}
-          {img && img.toLowerCase().match(/\.(mp3|mp4)$/) && (
-            <button
-              className="btn btn-link d-flex align-items-center gap-2 font-info"
-              onClick={openVideo}
-            >
-              <FaVideo /> Video
-            </button>
-          )}
-          {img && img.toLowerCase().match(/\.(pdf|word)$/) && (
-            <button
-              className="btn btn-link d-flex align-items-center gap-2 font-info"
-              onClick={openFile}
-            >
-              <FaFile /> Archivo
-            </button>
-          )}
-        </div>
-        <p className="text-secondary fw-normal font-info">Hace dos dias</p>
+        <p className="text-secondary fw-normal font-info">
+          {moment(timeCreated).startOf("hour").fromNow()}
+        </p>
       </div>
     </div>
   );
